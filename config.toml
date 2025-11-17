@@ -4,7 +4,8 @@ title = "블록체인 뉴스룸"
 theme = "newsroom"
 
 # 한 페이지에 보여줄 기사 수
-paginate = 12
+[pagination]
+  pagerSize = 12
 
 enableRobotsTXT = true
 
