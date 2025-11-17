@@ -1,0 +1,14 @@
+baseURL = "https://koreainfos.com/"
+languageCode = "ko-kr"
+title = "블록체인 뉴스룸"
+theme = "newsroom"
+
+# 한 페이지에 보여줄 기사 수
+paginate = 12
+
+enableRobotsTXT = true
+
+# 다크모드 기본값 (light / dark)
+[params]
+  defaultMode = "light"
+  description = "블록체인, 가상자산, 온체인 데이터, 규제·정책까지 한 번에 보는 한국어 블록체인 뉴스룸"
