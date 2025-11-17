@@ -1,4 +1,4 @@
-baseURL = "https://koreainfos.com/"
+baseURL = "https://blockchain-news-site.pages.dev/"
 languageCode = "ko-kr"
 title = "블록체인 뉴스룸"
 theme = "newsroom"
