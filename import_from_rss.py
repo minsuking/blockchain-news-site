@@ -1,5 +1,6 @@
 import os
 import re
+import json
 from datetime import datetime
 from urllib.parse import urlparse, urljoin
 
@@ -13,13 +14,13 @@ load_dotenv()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 # ===== 설정 =====
-WP_API_BASE = os.getenv("WP_API_BASE")  # 예: https://xn--vg1b25inpftnfs6gyvi.kr/wp-json/wp/v2/posts
+WP_API_BASE = os.getenv("WP_API_BASE")  # 예: https://도메인/wp-json/wp/v2/posts
 CONTENT_BASE = "content/news"
 IMAGE_BASE = "static/images/news"
-DEFAULT_CATEGORY = "블록체인"          # 🔹 카테고리 고정
-TIME_SUFFIX = "T09:00:00+09:00"        # 한국 시간 기준 고정
-MAX_POSTS = 10                        # 최대 가져올 포스트 수
-PER_PAGE = 50                         # WP API per_page 최대 100
+DEFAULT_CATEGORY = "블록체인"           # 🔹 카테고리 고정
+TIME_SUFFIX = "T09:00:00+09:00"         # 한국 시간 기준 고정
+MAX_POSTS = 100                          # 최대 가져올 포스트 수
+PER_PAGE = 50                           # WP API per_page 최대 100
 # =================
 
 
@@ -73,7 +74,6 @@ def extract_featured_image_from_post(post: dict, content_html: str, base_url: st
             media = media_list[0]
             url = media.get("source_url")
             if not url:
-                # 혹시 sizes.full.source_url 형태로만 있을 수도 있음
                 url = (
                     media.get("media_details", {})
                     .get("sizes", {})
@@ -103,14 +103,15 @@ def rewrite_with_openai(title: str, content: str) -> tuple[str, str]:
 {content}
 
 요구사항:
-- 제목은 클릭률(CTR)이 높은 형식으로 재창작
+- 제목은 클릭률(CTR)이 높은 형식으로 '새롭게' 재창작할 것
+- 원래 제목을 그대로 복사하지 말고, 반드시 다른 표현으로 바꿀 것
 - 본문은 블로그용 뉴스 톤으로 자연스럽게
 - 문장 길이는 원문과 크게 차이나지 않게
 - 중복 문장 제거
 - 불필요한 말투(너무 캐주얼 X)
 - '기자 스타일 + 요약 + 부드러운 해석' 톤
 
-반환 형식(JSON):
+반환 형식(JSON) 예시:
 {{
   "title": "새 제목",
   "content": "재작성된 본문"
@@ -123,8 +124,28 @@ def rewrite_with_openai(title: str, content: str) -> tuple[str, str]:
             messages=[{"role": "user", "content": prompt}],
             response_format={"type": "json_object"},
         )
-        data = resp.choices[0].message.parsed
-        return data["title"], data["content"]
+
+        msg = resp.choices[0].message
+
+        # 🔧 여기서는 json 문자열이 content로 온다고 가정하고 파싱
+        if isinstance(msg.content, list):
+            content_str = "".join(
+                getattr(part, "text", str(part)) for part in msg.content
+            )
+        else:
+            content_str = msg.content
+
+        data = json.loads(content_str)
+
+        new_title = data.get("title", title).strip()
+        new_content = data.get("content", content).strip()
+
+        # 모델이 원제목 그대로 돌려주면 강제로 조금 바꿔주기
+        if new_title == title:
+            new_title = f"{title}… 전망과 리스크 총정리"
+
+        return new_title, new_content
+
     except Exception as e:
         print("[WARN] OpenAI 재작성 실패:", e)
         return title, content
@@ -172,7 +193,7 @@ def main():
     for post in posts:
         # 원 제목
         raw_title = post.get("title", {}).get("rendered", "") or "제목 없음"
-        title = BeautifulSoup(raw_title, "html.parser").get_text().strip()
+        orig_title = BeautifulSoup(raw_title, "html.parser").get_text().strip()
 
         # 링크 (이미지 절대 경로 계산에만 사용)
         link = post.get("link", "").strip()
@@ -189,7 +210,7 @@ def main():
         month = dt.strftime("%m")
 
         # slug (원래 제목 기준으로 만드는 게 안전)
-        slug_base = slugify(title) or "untitled"
+        slug_base = slugify(orig_title) or "untitled"
         slug = f"{date_str}-{slug_base}"
 
         # 경로
@@ -211,10 +232,10 @@ def main():
         body_text = clean_html_to_markdown(raw_content_html)
 
         # 🔹 OpenAI로 제목+본문 재작성
-        new_title, new_body = rewrite_with_openai(title, body_text)
+        new_title, new_body = rewrite_with_openai(orig_title, body_text)
         title = new_title
         body_text = new_body
-        print(f"[AI] 재작성 완료: {title}")
+        print(f"[AI] 제목 재작성: '{orig_title}'  →  '{title}'")
 
         # 🔹 대표 이미지 추출 (REST API + fallback)
         img_url = extract_featured_image_from_post(post, raw_content_html, base_url=link)
@@ -247,7 +268,8 @@ def main():
                 if r.status_code == 200:
                     with open(img_path, "wb") as f:
                         f.write(r.content)
-                    featured_image = f"/images/news/{year}/{month}/{img_filename}"
+                    # Newsroom 테마용: image: "news/2025/11/파일명"
+                    featured_image = f"news/{year}/{month}/{img_filename}"
                 else:
                     print(f"[WARN] 이미지 다운로드 실패 status={r.status_code}")
             except Exception as e:
@@ -265,7 +287,7 @@ def main():
         front_matter += "tags: []\n"
         front_matter += 'summary: ""\n'
         if featured_image:
-            front_matter += f'featuredImage: "{featured_image}"\n'
+            front_matter += f'image: "{featured_image}"\n'
         front_matter += "---\n\n"
 
         full_content = front_matter + body_text + "\n"
