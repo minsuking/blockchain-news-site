@@ -1,0 +1,18 @@
+{{/* 대표 이미지 가져오기 우선순위:
+    1) .Params.image  (우리가 넣는 값: "news/2025/11/slug.webp")
+    2) .Params.featuredImage
+    3) 기본 썸네일 */}}
+
+{{- $img := "" -}}
+
+{{- with .Params.image }}
+ {{- $img = printf "/images/%s" . -}}
+{{- else if .Params.featuredImage }}
+ {{- $img = .Params.featuredImage -}}
+{{- end -}}
+
+{{- if not $img }}
+ {{- $img = "/images/default-thumb.jpg" -}} {{/* 없으면 기본 이미지 */}}
+{{- end -}}
+
+{{- $img -}}
