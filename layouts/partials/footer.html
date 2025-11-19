@@ -1,0 +1,27 @@
+{{/* layouts/partials/footer.html */}}
+{{ $footer := .Site.Data.newsroom.footer }}
+
+<footer class="site-footer">
+  {{ with $footer.columns }}
+  <div class="wrap footer-columns">
+    {{ range . }}
+      <div class="footer-column">
+        <h4 class="footer-title">{{ .title }}</h4>
+        <ul class="footer-links">
+          {{ range .links }}
+          <li>
+            <a href="{{ .url }}">{{ .label }}</a>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+    {{ end }}
+  </div>
+  {{ end }}
+
+  {{ with $footer.bottom }}
+  <div class="wrap footer-bottom">
+    <p>{{ .text | safeHTML }}</p>
+  </div>
+  {{ end }}
+</footer>
