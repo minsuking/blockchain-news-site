@@ -1,4 +1,4 @@
-baseURL = "https://blockchain-news-site.pages.dev/"
+baseURL = "https://block-w-news.site/"
 languageCode = "ko-kr"
 title = "블록체인 뉴스룸"
 theme = "newsroom"
@@ -13,3 +13,7 @@ enableRobotsTXT = true
 [params]
   defaultMode = "light"
   description = "블록체인, 가상자산, 온체인 데이터, 규제·정책까지 한 번에 보는 한국어 블록체인 뉴스룸"
+
+  # 🔹 Newsroom 메인 섹션/아카이브 설정
+  blogDir = "news"         # View Archive 버튼 → /news 로 이동
+  mainSections = ["news"]  # 메인에 나오는 글 타입 = content/news/*
