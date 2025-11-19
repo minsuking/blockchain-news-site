@@ -1,18 +1,21 @@
-{{/* 대표 이미지 가져오기 우선순위:
-    1) .Params.image  (우리가 넣는 값: "news/2025/11/slug.webp")
-    2) .Params.featuredImage
-    3) 기본 썸네일 */}}
+{{/* layouts/partials/func/getImage.html */}}
 
 {{- $img := "" -}}
 
+{{/* 
+  1순위: .Params.image  (예: "news/2025/11/slug.webp")
+  2순위: .Params.featuredImage (예: "/images/news/.../slug.webp")
+  없으면 기본 썸네일
+*/}}
+
 {{- with .Params.image }}
- {{- $img = printf "/images/%s" . -}}
+  {{- /* content/news/... 에서 image: "news/2025/11/xxx.webp" 처럼 쓴 경우 */ -}}
+  {{- $img = printf "/images/%s" . -}}
 {{- else if .Params.featuredImage }}
- {{- $img = .Params.featuredImage -}}
-{{- end -}}
+  {{- $img = .Params.featuredImage -}}
+{{- else }}
+  {{- /* fallback 기본 이미지 */ -}}
+  {{- $img = "/images/default-thumb.webp" -}}
+{{- end }}
 
-{{- if not $img }}
- {{- $img = "/images/default-thumb.jpg" -}} {{/* 없으면 기본 이미지 */}}
-{{- end -}}
-
-{{- $img -}}
+{{- $img | safeURL -}}
