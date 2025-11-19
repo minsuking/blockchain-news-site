@@ -1,31 +1,20 @@
 {{ define "main" }}
-  {{- $pages := .Pages }}
-
-  <div class="wrap pt-2 mt-2">
-    <h1 class="page_title mb-2">{{ .Title }}</h1>
-
-    {{- $paginator := .Paginate $pages -}}
-    {{- $size := $paginator.PagerSize }}
-
-    {{- range $index, $page := $paginator.Pages }}
-      {{ $bg := partial "func/getImage" $page }}
-
-      <article class="article mb-2">
-        <a href="{{ $page.Permalink }}" {{ if eq $index 0 }}class="grid-reverse"{{ end }}>
-          <div class="article_thumb" style='background-image: url({{ $bg }})'></div>
-          <div class="article_meta {{ if eq $index 0 }}center_y{{ end }}'>
-            <time class="post_date">
-              {{ $page.Date | time.Format "02. January 2006" }}
-            </time>
-            <h3 class="article_title">{{ $page.Title }}</h3>
-            <div class="article_excerpt {{ if eq $index 0 }}visible{{ end }}">
-              <p>{{ $page.Summary | truncate 120 }}</p>
-            </div>
+{{- $pages := .Pages }}
+<div class="wrap pt-2 mt-2">
+  {{ range $index, $p := $pages }}
+    {{ $bg := partial "func/getImage" $p }}
+    <article class="article mb-2">
+      <a href="{{ $p.Permalink }}">
+        <div class="article_thumb" style="background-image: url('{{ $bg }}');"></div>
+        <div class="article_meta">
+          <time class="post_date">{{ dateFormat "January 02, 2006" $p.Date }}</time>
+          <h3 class="article_title">{{ $p.Title }}</h3>
+          <div class="article_excerpt">
+            <p>{{ truncate 120 $p.Summary }}</p>
           </div>
-        </a>
-      </article>
-    {{- end }}
-  </div>
-
-  {{- template "_internal/pagination.html" . }}
+        </div>
+      </a>
+    </article>
+  {{ end }}
+</div>
 {{ end }}
