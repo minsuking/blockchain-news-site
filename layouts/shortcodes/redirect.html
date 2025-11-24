@@ -3,28 +3,12 @@
 {{- $ms := int $delayStr -}}
 {{- $sec := div $ms 1000 -}}
 
-<!-- 안전: URL과 delay를 data-* 속성으로 전달 -->
-<div id="__jh_redirect" data-to="{{ $to }}" data-delay="{{ $ms }}"></div>
+<!-- 메타 리다이렉트 (1~2초 후 자동 이동) -->
+<meta http-equiv="refresh" content="{{ $sec }};url={{ $to }}">
 
-<script>
-  (function () {
-    var el = document.getElementById("__jh_redirect");
-    if (!el) return;
-    var to = el.dataset.to || "";
-    var ms = parseInt(el.dataset.delay || "0", 10);
-
-    // 방어: 앞뒤 따옴표가 섞여 들어왔을 가능성 제거
-    to = to.replace(/^["']+|["']+$/g, "");
-
-    // 절대 URL이면 그대로, 상대면 그대로 이동
-    setTimeout(function () {
-      window.location.href = to;
-    }, isNaN(ms) ? 0 : ms);
-  })();
-</script>
-
-<!-- JS 미사용 브라우저용 대체 -->
-<noscript>
-  <meta http-equiv="refresh" content="{{ $sec }};url={{ $to }}">
-  <p>곧 <a href="{{ $to }}" rel="nofollow">이동</a>합니다. 자동 이동이 되지 않으면 링크를 클릭하세요.</p>
-</noscript>
+<p>
+  곧 
+  <a href="{{ $to }}" rel="nofollow">바이비트 공식 홈페이지</a>
+  로 이동합니다.<br>
+  자동으로 이동하지 않으면 링크를 클릭해주세요.
+</p>
