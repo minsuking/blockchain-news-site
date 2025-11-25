@@ -13,14 +13,29 @@ robots = "index, follow"
 +++
 
 ---
+해외 가상자산 거래소 OKX 이용을 준비하는 분들을 위한
+단계별 교육용 안내 가이드입니다.
+OKX의 장점, 수수료 정보부터 모바일 회원가입 절차, 본인인증(KYC),
+그리고 **보안 설정 방법(2FA)**까지 필요한 내용을 순서대로 정리했습니다.
 
-<a href="/go/okx-next/"
-   target="_blank"
-   rel="noopener nofollow sponsored">
-  <img src="/images/join-okx/index.png" alt="OKX 가입 절차 개요 이미지" style="max-width:100%; border-radius:12px;">
-</a>
+가입 전에 꼭 확인해야 할 핵심 정보만 모아,
+처음 이용하는 사용자도 쉽게 따라 할 수 있도록 구성했습니다.
 
 ---
+
+<div align="center">
+<div class="okx-cta">
+  <a href="/go/okx-next/"
+     class="okx-btn"
+     target="_blank"
+     rel="noopener nofollow sponsored">
+    🖤 OKX 공식 홈페이지 이동하기
+  </a>
+</div>
+</div>
+
+---
+
 ## OKX란 무엇인가요?
 
 OKX는 **해외 가상자산 거래소** 중 하나로,  
