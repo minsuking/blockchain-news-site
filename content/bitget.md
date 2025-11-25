@@ -158,18 +158,41 @@ publishResources = true
 ---
 
 <style>
-/* Bitget 스타일 CTA 버튼 (브랜드 톤) */
-.bgt-cta-wrap{ display:flex; justify-content:center; margin:28px 0 14px; }
+/* Bitget 스타일 CTA 버튼 (브랜드 톤 보정 완료) */
+.bgt-cta-wrap{
+  display:flex;
+  justify-content:center;
+  margin:28px 0 14px;
+}
 .bgt-btn{
   display:inline-block;
-  background:#1DA2B4;            /* Bitget teal */
-  color:#fff; font-weight:700; letter-spacing:.2px;
-  padding:14px 24px; border-radius:14px; text-decoration:none;
+  background:#1197A7;                 /* 대비 강화한 Bitget teal */
+  color:#ffffff !important;           /* 글자색 강제 지정 */
+  font-weight:700;
+  letter-spacing:.2px;
+  padding:14px 24px;
+  border-radius:14px;
+  text-decoration:none;
   box-shadow:0 6px 16px rgba(0,0,0,.12);
   transition:transform .08s ease, box-shadow .2s ease, opacity .2s ease;
 }
-.bgt-btn:hover{ transform:translateY(-1px); box-shadow:0 10px 24px rgba(0,0,0,.18); opacity:.98; }
-.bgt-btn:active{ transform:translateY(0); box-shadow:0 4px 12px rgba(0,0,0,.12); }
-@media (max-width:520px){ .bgt-btn{ width:100%; text-align:center; } }
-@media (prefers-color-scheme: dark){ .bgt-btn{ background:#178A99; } } /* 다크 모드 보정 */
+.bgt-btn:hover{
+  transform:translateY(-1px);
+  box-shadow:0 10px 24px rgba(0,0,0,.18);
+  opacity:.98;
+}
+.bgt-btn:active{
+  transform:translateY(0);
+  box-shadow:0 4px 12px rgba(0,0,0,.12);
+}
+@media (max-width:520px){
+  .bgt-btn{ width:100%; text-align:center; }
+}
+/* 다크 모드 보정 */
+@media (prefers-color-scheme: dark){
+  .bgt-btn{
+    background:#0F7F8C;               /* 다크 모드 대비 강화 */
+    color:#ffffff !important;
+  }
+}
 </style>
