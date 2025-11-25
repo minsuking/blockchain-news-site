@@ -27,6 +27,17 @@ publishResources = true
 비영업성·정보 제공용 페이지입니다.
 
 ---
+
+<div class="bgt-cta-wrap">
+  <a href="/go/bitget-next/"
+     class="bgt-btn"
+     target="_blank"
+     rel="noopener nofollow sponsored">
+    Bitget 공식 홈페이지 열기
+  </a>
+</div>
+
+---
 ## 비트겟 거래소 장점 및 단점
 ### ⭐ 장점(Pros)
 
@@ -66,7 +77,7 @@ publishResources = true
 
 ### ✔ 선물(USDT-M / Coin-M Futures) 수수료
 
-# 메이커: 0.02% / 테이커: 0.06%
++ 메이커: 0.02% / 테이커: 0.06%
 > 거래량·VIP 티어 상승 시 더 저렴해짐.
 
 ---
