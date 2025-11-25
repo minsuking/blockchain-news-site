@@ -28,7 +28,7 @@ publishResources = true
 
 ---
 ## 비트겟 거래소 장점 및 단점
-# ⭐ 장점(Pros)
+### ⭐ 장점(Pros)
 
 + 세계 상위권 선물 거래소
  파생상품·레버리지 거래 유동성이 매우 높음.
@@ -46,7 +46,7 @@ publishResources = true
 + Earn·Launchpad 제공
  코인 스테이킹, Launchpool, Bot Trading 등 옵션 다양.
 
-# ⚠ 단점(Cons)
+### ⚠ 단점(Cons)
 
 + 원화(KRW) 직접 입출금 불가
  해외 결제수단, P2P, 코인입금 방식 사용해야 함.
@@ -59,12 +59,12 @@ publishResources = true
 
 ---
 ## 비트겟 거래소 수수료
-# ✔ 현물(Spot) 기본 수수료
+### ✔ 현물(Spot) 기본 수수료
 
 + 메이커: 0.10% / 테이커: 0.10%
 > Bitget Token(BGB) 사용 시 수수료 추가 할인 가능.
 
-# ✔ 선물(USDT-M / Coin-M Futures) 수수료
+### ✔ 선물(USDT-M / Coin-M Futures) 수수료
 
 # 메이커: 0.02% / 테이커: 0.06%
 > 거래량·VIP 티어 상승 시 더 저렴해짐.
