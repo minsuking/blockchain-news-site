@@ -15,6 +15,14 @@ list = "always"
 publishResources = true
 +++
 
+<div class="bgt-cta-wrap">
+  <a href="/go/bitget-next/"
+     class="bgt-btn"
+     target="_blank"
+     rel="noopener nofollow sponsored">
+    Bitget 공식 홈페이지 조회
+  </a>
+</div>
 
 해외 가상자산 거래소 비트겟(Bitget) 이용을 준비하는 분들을 위한
 교육용 안내 가이드입니다.
@@ -74,6 +82,15 @@ publishResources = true
 ---
 ## 1️⃣ 모바일(크롬/사파리)에서 웹으로 가입하기
 
+<div class="bgt-cta-wrap">
+  <a href="/go/bitget-next/"
+     class="bgt-btn"
+     target="_blank"
+     rel="noopener nofollow sponsored">
+    Bitget 공식 홈페이지 열기
+  </a>
+</div>
+
 모바일에서도 앱 없이 **크롬/사파리 브라우저만으로** 가입할 수 있습니다.
 
 ### 단계별 안내 (웹 기준)
@@ -127,6 +144,15 @@ publishResources = true
 
 이 페이지는 **Bitget 가입 및 KYC 절차 학습**을 위한 **교육용 가이드**입니다.  
 서비스 이용에 따른 책임은 사용자 본인에게 있으며, 문제 발생 시 **Bitget 공식 고객센터/도움말 센터**를 참고하세요.
+
+<div class="bgt-cta-wrap">
+  <a href="/go/bitget-next/"
+     class="bgt-btn"
+     target="_blank"
+     rel="noopener nofollow sponsored">
+    Bitget 공식 홈페이지에서 확인
+  </a>
+</div>
 
 ---
 
