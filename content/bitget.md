@@ -35,7 +35,7 @@ publishResources = true
 비영업성·정보 제공용 페이지입니다.
 
 ---
-
+![메시_비트겟](/images/join-bitget/비트겟_메시1.jpg)
 ---
 ## 비트겟 거래소 장점 및 단점
 ### ⭐ 장점(Pros)
@@ -79,6 +79,8 @@ publishResources = true
 + 메이커: 0.02% / 테이커: 0.06%
 > 거래량·VIP 티어 상승 시 더 저렴해짐.
 
+---
+![메시_비트겟](/images/join-bitget/비트겟_메시2.jpg)
 ---
 ## 1️⃣ 모바일(크롬/사파리)에서 웹으로 가입하기
 
@@ -139,7 +141,8 @@ publishResources = true
 | 보안 | 2FA·피싱코드·출금 화이트리스트 등 추가 보안 설정 점검 |
 
 ---
-
+![메시_비트겟](/images/join-bitget/비트겟_메시3.jpg)
+---
 ## 4️⃣ 마무리 안내
 
 이 페이지는 **Bitget 가입 및 KYC 절차 학습**을 위한 **교육용 가이드**입니다.  
