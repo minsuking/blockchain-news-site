@@ -204,48 +204,51 @@ OKX는 **해외 가상자산 거래소** 중 하나로,
   display:flex;
   justify-content:center;
   align-items:center;
-  margin: 28px 0 14px;
+  margin:28px 0 14px;
 }
 
 .okx-btn{
   display:inline-flex;
   align-items:center;
-  gap:10px;                 /* 이모지 ↔ 텍스트 간격 */
-  background:#000;
-  color:#fff;
+  gap:10px;
+
+  background:#000 !important;
+
+  color:#ffffff !important;
+  -webkit-text-fill-color:#ffffff !important; /* ← 이게 핵심 */
+
   font-weight:700;
   font-size:16px;
   letter-spacing:0.3px;
+
   padding:14px 26px;
   border-radius:14px;
-  text-decoration:none;
-  box-shadow:0 6px 16px rgba(0,0,0,.15);
+
+  text-decoration:none !important;
+  box-shadow:0 6px 16px rgba(0,0,0,.18);
+
   transition:transform .1s ease, box-shadow .2s ease, opacity .2s ease;
+}
+
+/* 방문 후에도 초록색 방지 */
+.okx-btn:visited,
+.okx-btn:hover,
+.okx-btn:active{
+  color:#ffffff !important;
+  -webkit-text-fill-color:#ffffff !important;
 }
 
 .okx-btn:hover{
   transform:translateY(-2px);
-  box-shadow:0 12px 28px rgba(0,0,0,.22);
+  box-shadow:0 12px 28px rgba(0,0,0,.24);
   opacity:.98;
 }
 
-.okx-btn:active{
-  transform:translateY(0);
-  box-shadow:0 4px 12px rgba(0,0,0,.12);
-}
-
-@media (max-width: 520px){
+@media (max-width:520px){
   .okx-btn{
     width:100%;
     justify-content:center;
-    text-align:center;
-  }
-}
-
-@media (prefers-color-scheme: dark){
-  .okx-btn{
-    background:#0b0b0b;
-    color:#fff;
   }
 }
 </style>
+
