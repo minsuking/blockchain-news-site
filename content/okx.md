@@ -25,12 +25,12 @@ OKX의 장점, 수수료 정보부터 모바일 회원가입 절차, 본인인�
 
 <div align="center">
 <div class="okx-cta">
-  <a href="/go/okx-next/"
-     class="okx-btn"
-     target="_blank"
-     rel="noopener nofollow sponsored">
-    🖤 OKX 공식 홈페이지 이동하기
-  </a>
+<a href="/go/okx-next/"
+   class="okx-btn"
+   target="_blank"
+   rel="noopener nofollow sponsored">
+  🚀 OKX 공식 홈페이지 바로가기 🚀
+</a>
 </div>
 </div>
 
@@ -111,12 +111,12 @@ OKX는 **해외 가상자산 거래소** 중 하나로,
 
 <div align="center">
 <div class="okx-cta">
-  <a href="/go/okx-next/"
-     class="okx-btn"
-     target="_blank"
-     rel="noopener nofollow sponsored">
-    🖤 OKX 공식 페이지 이동하기
-  </a>
+ <a href="/go/okx-next/"
+   class="okx-btn"
+   target="_blank"
+   rel="noopener nofollow sponsored">
+  🚀 OKX 공식 홈페이지 바로가기 🚀
+</a>
 </div>
 </div>
 
@@ -188,12 +188,12 @@ OKX는 **해외 가상자산 거래소** 중 하나로,
 
 <div align="center">
 <div class="okx-cta">
-  <a href="/go/okx-next/"
-     class="okx-btn"
-     target="_blank"
-     rel="noopener nofollow sponsored">
-    🖤 OKX 공식 홈페이지 바로가기
-  </a>
+<a href="/go/okx-next/"
+   class="okx-btn"
+   target="_blank"
+   rel="noopener nofollow sponsored">
+  🚀 OKX 공식 홈페이지 바로가기 🚀
+</a>
 </div>
 </div>
 
@@ -201,34 +201,51 @@ OKX는 **해외 가상자산 거래소** 중 하나로,
 
 <style>
 .okx-cta{
-  display:flex; justify-content:center; align-items:center;
+  display:flex;
+  justify-content:center;
+  align-items:center;
   margin: 28px 0 14px;
 }
+
 .okx-btn{
-  display:inline-block;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;                 /* 이모지 ↔ 텍스트 간격 */
   background:#000;
   color:#fff;
   font-weight:700;
-  letter-spacing:0.2px;
-  padding:14px 24px;
+  font-size:16px;
+  letter-spacing:0.3px;
+  padding:14px 26px;
   border-radius:14px;
   text-decoration:none;
-  box-shadow:0 6px 16px rgba(0,0,0,.12);
-  transition:transform .08s ease, box-shadow .2s ease, opacity .2s ease;
+  box-shadow:0 6px 16px rgba(0,0,0,.15);
+  transition:transform .1s ease, box-shadow .2s ease, opacity .2s ease;
 }
+
 .okx-btn:hover{
-  transform:translateY(-1px);
-  box-shadow:0 10px 24px rgba(0,0,0,.18);
+  transform:translateY(-2px);
+  box-shadow:0 12px 28px rgba(0,0,0,.22);
   opacity:.98;
 }
+
 .okx-btn:active{
   transform:translateY(0);
   box-shadow:0 4px 12px rgba(0,0,0,.12);
 }
+
 @media (max-width: 520px){
-  .okx-btn{ width:100%; text-align:center; }
+  .okx-btn{
+    width:100%;
+    justify-content:center;
+    text-align:center;
+  }
 }
+
 @media (prefers-color-scheme: dark){
-  .okx-btn{ background:#0a0a0a; color:#fff; }
+  .okx-btn{
+    background:#0b0b0b;
+    color:#fff;
+  }
 }
 </style>
