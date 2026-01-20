@@ -12,12 +12,11 @@ date: 2025-01-01T09:00:00+09:00
   <div class="ex-topbox__title">
     <span class="ex-ico" aria-hidden="true">⭐</span>
     <span class="ex-ico" aria-hidden="true">🎁</span>
-    <strong>수수료 혜택 코드 자동 적용</strong>
+    <strong>수수료 20% 혜택 평생 할인 혜택</strong>
   </div>
 
   <p class="ex-topbox__desc">
-    아래 링크로 가입하면 <b>거래 수수료 할인 혜택</b>이 자동 적용될 수 있습니다.
-    (혜택 및 조건은 시점에 따라 변경될 수 있으니, 최종 조건은 가입 화면에서 확인하세요.)
+    아래 링크로 가입하면 <b>거래 수수료 50%할인 코드</b>가 자동으로 적용됩니다.
   </p>
 
   <div class="ex-topbox__cta">
