@@ -13,7 +13,8 @@ list = "always"
 publishResources = true
 +++
 
-# 비트겟 가입방법 (모바일 웹 기준, 2026 최신)
+
+
 
 이 가이드는 **:contentReference[oaicite:0]{index=0}(Bitget)** 을 처음 이용하는 사용자를 위해  
 **모바일 크롬·사파리에서 웹으로 가입하는 방법**,  
@@ -21,7 +22,90 @@ publishResources = true
 실제 가입 흐름 기준으로 정리한 **교육용 안내서**입니다.
 
 ---
-![비트겟 x 메시 공식 파트너십 홍보 이미지](/images/join-bitget/비트겟_메시1.jpg)
+<div class="bgt-topbox" role="note" aria-label="비트겟 가입 안내">
+  <div class="bgt-topbox__title">
+    <span class="bgt-ico" aria-hidden="true">⭐</span>
+    <span class="bgt-ico" aria-hidden="true">🎁</span>
+    <strong>수수료 50% 혜택 평생 할인 혜택</strong>
+  </div>
+
+  <p class="bgt-topbox__desc">
+    아래 링크로 가입하면 <b>거래 수수료 50%</b>할인 코드가 자동으로 적용됩니다.
+  </p>
+
+  <div class="bgt-topbox__cta">
+    <a href="/go/bitget-next/"
+       class="bgt-topbox__btn"
+       target="_blank"
+       rel="noopener nofollow sponsored">
+      비트겟 공식 홈페이지 바로가기
+    </a>
+  </div>
+</div>
+
+<style>
+/* Top CTA Box (Bitget 톤 + 스샷 느낌) */
+.bgt-topbox{
+  max-width: 980px;
+  margin: 18px auto 18px;
+  padding: 18px 18px 16px;
+  border: 2px solid #22B8C7;      /* Bitget teal */
+  border-radius: 14px;
+  background: #F6FEFF;            /* 아주 연한 민트 */
+  box-shadow: 0 8px 22px rgba(0,0,0,.06);
+}
+.bgt-topbox__title{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size: 18px;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+.bgt-ico{ font-size: 18px; }
+.bgt-topbox__desc{
+  margin: 0 0 14px;
+  color: #1f2937;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.bgt-topbox__cta{
+  display:flex;
+  justify-content:center;
+}
+.bgt-topbox__btn{
+  display:inline-block;
+  width: min(720px, 100%);
+  text-align:center;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #22B8C7;            /* Bitget teal */
+  color: #fff !important;
+  text-decoration:none;
+  font-weight: 800;
+  letter-spacing: .2px;
+  box-shadow: 0 10px 22px rgba(0,0,0,.10);
+  transition: transform .08s ease, opacity .2s ease, box-shadow .2s ease;
+}
+.bgt-topbox__btn:hover{
+  opacity: .96;
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(0,0,0,.14);
+}
+.bgt-topbox__btn:active{ transform: translateY(0); }
+@media (max-width:520px){
+  .bgt-topbox{ padding: 16px 14px 14px; }
+  .bgt-topbox__title{ font-size: 16px; }
+}
+@media (prefers-color-scheme: dark){
+  .bgt-topbox{
+    background: rgba(34,184,199,.08);
+    border-color: rgba(34,184,199,.9);
+  }
+  .bgt-topbox__desc{ color: rgba(255,255,255,.88); }
+}
+</style>
+
 ---
 
 ## ⏱ 3분 요약: 비트겟 가입 핵심 단계
@@ -33,14 +117,8 @@ publishResources = true
 5. Profile → Identity Verification에서 **KYC 인증 진행**  
 6. 인증 완료 후 출금·거래 기능 활성화
 
-<div class="bgt-cta-wrap">
-  <a href="/go/bitget-next/"
-     class="bgt-btn"
-     target="_blank"
-     rel="noopener nofollow sponsored">
-    비트겟 공식 웹사이트 열기
-  </a>
-</div>
+---
+![비트겟 x 메시 공식 파트너십 홍보 이미지](/images/join-bitget/비트겟_메시1.jpg)
 
 ---
 
