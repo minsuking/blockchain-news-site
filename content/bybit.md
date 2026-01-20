@@ -7,6 +7,18 @@ draft: false
 date: 2025-01-01T09:00:00+09:00
 ---
 
+해외 가상자산 거래소 바이비트(Bybit) 이용을 준비하는 분들을 위한
+교육용 안내 가이드입니다.
+
+바이비트의 주요 장점과 수수료 구조,
+모바일 회원가입 절차, 본인인증(KYC), 보안 설정(2FA) 등을
+처음 이용하는 사용자도 쉽게 따라 할 수 있도록 단계별로 정리했습니다.
+
+가입 전 반드시 알아두어야 할 핵심 이용 정보를
+한곳에 모아 제공하는 비영업성·정보 제공용 안내 페이지입니다.
+
+---
+
 <!-- ✅ 상단 CTA 박스: 프론트매터 바로 아래, H1 위에 위치 -->
 <div class="ex-topbox" role="note" aria-label="바이비트 가입 안내">
   <div class="ex-topbox__title">
@@ -92,30 +104,6 @@ date: 2025-01-01T09:00:00+09:00
   .ex-topbox__btn{ color:#111 !important; }
 }
 </style>
-
----
-
-해외 가상자산 거래소 바이비트(Bybit) 이용을 준비하는 분들을 위한
-교육용 안내 가이드입니다.
-
-바이비트의 주요 장점과 수수료 구조,
-모바일 회원가입 절차, 본인인증(KYC), 보안 설정(2FA) 등을
-처음 이용하는 사용자도 쉽게 따라 할 수 있도록 단계별로 정리했습니다.
-
-가입 전 반드시 알아두어야 할 핵심 이용 정보를
-한곳에 모아 제공하는 비영업성·정보 제공용 안내 페이지입니다.
-
----
-
-<!-- ✅ 기존 CTA(원문 유지) -->
-<div align="center" style="margin: 18px 0;">
-  <a href="/go/bybit-next/" target="_blank" rel="noopener noreferrer"
-     style="display:inline-block;padding:14px 28px;border-radius:14px;
-     background:#ff7f00;color:#fff;font-weight:600;font-size:17px;
-     text-decoration:none;">
-     🌐 공식 바이비트 페이지 안내
-  </a>
-</div>
 
 ---
 
