@@ -1,10 +1,99 @@
 ---
-title: "바이비트 거래소 장점 수수료 정보 가입 및 인증 가이드"
-description: "해외 가상자산 거래소 바이비트 가입 방법, KYC 인증 과정, 이벤트 수수료 보안 운영 방식 등을 정리한 정보 제공용 콘텐츠입니다. 투자 권유 목적이 아닙니다."
-keywords: ["Bybit", "바이비트", "바이비트 가입방법", "바이비트 가입", "Bybit 회원가입","바이비트 인증","바이비트 수수료", "Bybit KYC", "해외 거래소 정보", "가상자산 거래소 안내", "해외거래소 가입방법"]
-summary: "해외 가상자산 거래소 바이비트 거래소 장점, 수수료 정보 제공 및 신규 가입을 준비하는 분들을 위한 교육용 가이드 — 모바일 가입 절차, 본인인증 과정, 보안 설정 방법까지 단계별로 정리했습니다."
+title: "바이비트 가입방법 (모바일 크롬) | KYC 인증·수수료·2FA 가이드 (2026)"
+description: "바이비트(Bybit) 모바일 가입방법을 사진 순서대로 안내합니다. 회원가입, KYC 본인인증, 2FA 보안 설정, 수수료 요약과 이용 시 참고사항까지 교육용으로 정리했습니다. 투자 권유 목적이 아닙니다."
+keywords: ["바이비트 가입방법", "Bybit 가입", "바이비트 가입", "Bybit 회원가입", "바이비트 KYC", "바이비트 인증", "바이비트 수수료", "해외거래소 가입방법", "바이비트 2FA"]
+summary: "바이비트(Bybit) 거래소 신규 가입자를 위한 교육용 가이드 — 모바일(크롬) 가입 절차, KYC 인증 과정, 보안(2FA)과 수수료 요약까지 사진 순서대로 정리했습니다."
 draft: false
 date: 2025-01-01T09:00:00+09:00
+---
+
+<!-- ✅ 상단 CTA 박스: 프론트매터 바로 아래, H1 위에 위치 -->
+<div class="ex-topbox" role="note" aria-label="바이비트 가입 안내">
+  <div class="ex-topbox__title">
+    <span class="ex-ico" aria-hidden="true">⭐</span>
+    <span class="ex-ico" aria-hidden="true">🎁</span>
+    <strong>수수료 혜택 코드 자동 적용</strong>
+  </div>
+
+  <p class="ex-topbox__desc">
+    아래 링크로 가입하면 <b>거래 수수료 할인 혜택</b>이 자동 적용될 수 있습니다.
+    (혜택 및 조건은 시점에 따라 변경될 수 있으니, 최종 조건은 가입 화면에서 확인하세요.)
+  </p>
+
+  <div class="ex-topbox__cta">
+    <a href="/go/bybit-next/"
+       class="ex-topbox__btn"
+       target="_blank"
+       rel="noopener nofollow sponsored">
+      바이비트 공식 홈페이지 바로가기
+    </a>
+  </div>
+</div>
+
+<style>
+/* Top CTA Box (Bybit 톤 + 예시 이미지 스타일) */
+.ex-topbox{
+  max-width: 980px;
+  margin: 18px auto 18px;
+  padding: 18px 18px 16px;
+  border: 2px solid #F5B800;        /* Bybit 느낌의 노랑 */
+  border-radius: 14px;
+  background: #FFFBEB;              /* 연한 노랑 배경 */
+  box-shadow: 0 8px 22px rgba(0,0,0,.06);
+}
+.ex-topbox__title{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size: 18px;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+.ex-ico{ font-size: 18px; }
+.ex-topbox__desc{
+  margin: 0 0 14px;
+  color: #1f2937;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.ex-topbox__cta{
+  display:flex;
+  justify-content:center;
+}
+.ex-topbox__btn{
+  display:inline-block;
+  width: min(720px, 100%);
+  text-align:center;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #F5B800;
+  color: #111 !important;
+  text-decoration:none;
+  font-weight: 800;
+  letter-spacing: .2px;
+  box-shadow: 0 10px 22px rgba(0,0,0,.12);
+  transition: transform .08s ease, opacity .2s ease, box-shadow .2s ease;
+}
+.ex-topbox__btn:hover{
+  opacity: .96;
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(0,0,0,.14);
+}
+.ex-topbox__btn:active{ transform: translateY(0); }
+@media (max-width:520px){
+  .ex-topbox{ padding: 16px 14px 14px; }
+  .ex-topbox__title{ font-size: 16px; }
+}
+@media (prefers-color-scheme: dark){
+  .ex-topbox{
+    background: rgba(245,184,0,.10);
+    border-color: rgba(245,184,0,.9);
+  }
+  .ex-topbox__desc{ color: rgba(255,255,255,.88); }
+  .ex-topbox__btn{ color:#111 !important; }
+}
+</style>
+
 ---
 
 해외 가상자산 거래소 바이비트(Bybit) 이용을 준비하는 분들을 위한
@@ -19,6 +108,7 @@ date: 2025-01-01T09:00:00+09:00
 
 ---
 
+<!-- ✅ 기존 CTA(원문 유지) -->
 <div align="center" style="margin: 18px 0;">
   <a href="/go/bybit-next/" target="_blank" rel="noopener noreferrer"
      style="display:inline-block;padding:14px 28px;border-radius:14px;
@@ -113,9 +203,7 @@ Bybit은 PC와 모바일을 모두 지원하며,
 ![KYC 인증 화면 예시](/images/join/11.jpg)
 - 국적: Korea → 신분증(주민등록증, 운전면허증, 여권 중 택1) 제출  
 
-
 - 셀카(Selfie) 촬영 후 자동 인증(2~5분 내 완료)
-
 
 > ⚠️ 미국(United States) 사용자는 인증이 제한됩니다.  
 > “All countries except USA” 항목을 선택해야 합니다.
@@ -188,3 +276,69 @@ KYC는 자금세탁방지(AML) 규정을 준수하기 위한 기본 절차로,
 > 추후 거래소 정책 및 규정에 따라 변경될 수 있습니다.
 
 ---
+
+_Last updated: 2026-01-20_
+
+<!-- ✅ FAQ + HowTo JSON-LD: 파일 맨 아래에 그대로 두기 (코드블록/프론트매터 안에 넣지 말 것) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "HowTo",
+      "@id": "https://block-w-news.site/bybit/#howto",
+      "name": "바이비트 가입방법 (모바일 크롬 기준)",
+      "description": "모바일 크롬에서 바이비트(Bybit) 회원가입부터 KYC 본인인증까지 진행하는 단계별 교육용 가이드.",
+      "inLanguage": "ko-KR",
+      "totalTime": "PT3M",
+      "step": [
+        { "@type": "HowToStep", "name": "크롬 브라우저로 공식 사이트 접속", "text": "모바일 크롬에서 공식 바이비트 페이지로 접속합니다." },
+        { "@type": "HowToStep", "name": "Sign Up(회원가입) 선택", "text": "가입 화면에서 Sign Up을 선택합니다." },
+        { "@type": "HowToStep", "name": "이메일 또는 휴대전화로 가입", "text": "이메일/휴대전화 입력 후 약관 동의 및 비밀번호를 설정합니다." },
+        { "@type": "HowToStep", "name": "Verification Code 입력", "text": "이메일 또는 SMS로 받은 인증번호를 입력해 계정을 생성합니다." },
+        { "@type": "HowToStep", "name": "Verify Now로 KYC 진입", "text": "로그인 후 Verify Now를 선택해 KYC 인증을 시작합니다." },
+        { "@type": "HowToStep", "name": "신분증 제출 및 셀피 인증 완료", "text": "국가 선택 후 신분증 업로드 및 셀피 촬영을 완료합니다." }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://block-w-news.site/bybit/#faq",
+      "inLanguage": "ko-KR",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "바이비트 가입은 어떤 브라우저로 하는 게 좋나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "이 페이지 기준으로는 모바일 가입을 크롬(Chrome) 브라우저에서 진행하는 것이 안정적이라고 안내합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "바이비트 KYC 인증은 얼마나 걸리나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "본문 안내 기준으로 셀피 촬영 후 자동 인증이 진행되며 보통 2~5분 내 완료될 수 있습니다. (상황에 따라 달라질 수 있습니다.)"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "바이비트에서 원화(KRW) 입금이 가능한가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "원화(KRW) 직접 입출금은 불가하다고 안내하며, 코인/USDT 또는 P2P 방식이 사용될 수 있다고 설명합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "미국(USA) 사용자는 바이비트 인증이 제한되나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "본문 안내 기준으로 미국 사용자는 인증이 제한될 수 있으며, 'All countries except USA' 항목을 선택하라는 안내가 포함되어 있습니다."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
