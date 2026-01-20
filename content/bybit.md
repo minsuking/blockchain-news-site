@@ -103,6 +103,8 @@ date: 2025-01-01T09:00:00+09:00
   .ex-topbox__desc{ color: rgba(255,255,255,.88); }
   .ex-topbox__btn{ color:#111 !important; }
 }
+.ex-topbox strong,
+.ex-topbox b { font-weight: 800 !important; }
 </style>
 
 ---
