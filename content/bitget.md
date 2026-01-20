@@ -227,6 +227,102 @@ A. 보안 강화를 위해 강력히 권장되며, 미설정 시 일부 기능�
 
 _Last updated: 2026-01-20_
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "HowTo",
+      "@id": "https://block-w-news.site/bitget/#howto",
+      "name": "비트겟 가입방법 (모바일 웹 기준)",
+      "description": "모바일 크롬/사파리에서 비트겟(Bitget) 회원가입부터 2FA 설정, KYC 인증까지 진행하는 단계별 교육용 가이드.",
+      "inLanguage": "ko-KR",
+      "totalTime": "PT3M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "비트겟 공식 웹사이트 접속",
+          "text": "모바일 브라우저(크롬/사파리)에서 비트겟 공식 웹사이트를 엽니다."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "회원가입(Sign Up) 진입",
+          "text": "상단 Sign Up(가입) 버튼을 눌러 가입 화면으로 이동합니다."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "이메일 또는 휴대폰으로 가입 정보 입력",
+          "text": "이메일 또는 휴대폰을 입력하고 비밀번호 요건을 충족해 설정합니다."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "인증코드 입력 후 계정 생성",
+          "text": "이메일/SMS로 받은 인증코드를 입력해 계정을 생성합니다."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "2단계 인증(2FA) 설정",
+          "text": "Profile > Security에서 2FA를 활성화해 계정 보안을 강화합니다."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "KYC(본인인증) 진행",
+          "text": "Profile > Identity Verification에서 신분증 업로드와 셀피 인증을 완료합니다."
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://block-w-news.site/bitget/#faq",
+      "inLanguage": "ko-KR",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "비트겟은 한국인이 가입할 수 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "현재 기준으로 한국 거주자는 가입 및 이용이 가능한 경우가 많습니다. 다만 정책은 변경될 수 있으니 가입 화면 및 공식 안내를 최종 기준으로 확인하세요."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "비트겟 가입이 안 될 때는 어떻게 하나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "추천코드가 비어 있거나 앱으로 강제 전환, 인증메일 미수신 등이 원인일 수 있습니다. 같은 브라우저에서 링크 재접속, 시크릿 모드 해제, 스팸함 확인 후 재전송을 시도하세요."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "비트겟 재가입이 가능한가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "탈퇴 이력, KYC 정보, 동일 신분증 사용 여부, 과거 제재 이력 등에 따라 재가입이 제한될 수 있습니다. 최종 기준은 비트겟 고객센터 정책을 확인하세요."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "비트겟 KYC 인증이 실패하는 이유는 무엇인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "신분증 사진 흐림/반사, 입력 정보 불일치, 얼굴 인증 조명 부족, 모자·마스크 착용 등이 주요 원인입니다. 선명한 촬영과 정보 일치 여부를 점검하세요."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "비트겟에서 원화(KRW) 입금이 가능한가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "원화 직접 입금은 지원하지 않는 경우가 많으며, 일반적으로 국내 거래소에서 코인을 구매한 뒤 비트겟으로 전송하는 방식이 사용됩니다. 가능 여부는 최신 공식 안내를 확인하세요."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+
 <style>
 .bgt-cta-wrap{
   display:flex;
