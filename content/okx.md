@@ -1,10 +1,11 @@
 +++
-title = "OKX 거래소 장점, 수수료 정보 제공 그리고 회원가입 및 인증 가이드"
-description = "해외 가상자산 거래소 OKX 거래소 장점, 수수료 정보 제공 및 회원 가입을 준비하는 분들을 위한 교육용 가이드 — 모바일 가입 절차, 본인인증 과정, 보안 설정 방법까지 단계별로 정리했습니다."
+title = "OKX 가입방법 (모바일) | KYC 인증·수수료·2FA 가이드 (2026)"
+description = "OKX 거래소 가입방법을 모바일 기준으로 단계별 안내합니다. 회원가입, KYC 본인인증, 2FA 보안 설정, 수수료 요약과 이용 시 참고사항까지 교육용으로 정리했습니다. 투자 권유 목적이 아닙니다."
 draft = false
-summary = "해외 가상자산 거래소 OKX 거래소 장점, 수수료 정보 제공 및 신규 가입을 준비하는 분들을 위한 교육용 가이드 — 모바일 가입 절차, 본인인증 과정, 보안 설정 방법까지 단계별로 정리했습니다."
-keywords = ["OKX", "OKX 가입", "OKX 거래소", "OKX 수수료", "OKX 인증", "OKX 장점", "OKX 가입방법", "해외거래소 가입 절차", "암호화폐 거래소 가이드", "코인 입출금 방법"]
+summary = "OKX 거래소 신규 가입자를 위한 교육용 가이드 — 모바일 가입 절차, KYC 인증 과정, 보안(2FA) 설정과 수수료 요약까지 단계별로 정리했습니다."
+keywords = ["OKX 가입방법", "OKX 가입", "OKX KYC", "OKX 인증", "OKX 수수료", "OKX 2FA", "해외거래소 가입방법", "OKX 거래소", "코인 입출금 방법"]
 robots = "index, follow"
+outputs = ["HTML"]
 
 [build]
   render = "always"
@@ -12,7 +13,6 @@ robots = "index, follow"
   publishResources = true
 +++
 
----
 해외 가상자산 거래소 OKX 이용을 준비하는 분들을 위한
 단계별 교육용 안내 가이드입니다.
 OKX의 장점, 수수료 정보부터 모바일 회원가입 절차, 본인인증(KYC),
@@ -23,16 +23,105 @@ OKX의 장점, 수수료 정보부터 모바일 회원가입 절차, 본인인�
 
 ---
 
-<div align="center">
-<div class="okx-cta">
-<a href="/go/okx-next/"
-   class="okx-btn"
-   target="_blank"
-   rel="noopener nofollow sponsored">
-  🚀 OKX 공식 홈페이지 바로가기 🚀
-</a>
+<!-- ✅ 상단 CTA 박스: 프론트매터 바로 아래, 본문 시작 전에 위치 -->
+<div class="okx-topbox" role="note" aria-label="OKX 가입 안내">
+  <div class="okx-topbox__title">
+    <span class="okx-ico" aria-hidden="true">⭐</span>
+    <span class="okx-ico" aria-hidden="true">🎁</span>
+    <strong>수수료 20% 평생 할인 혜택 </strong>
+  </div>
+
+  <p class="okx-topbox__desc">
+    아래 링크로 가입하면 <strong>거래 수수료 20% 할인 코드</strong>가 자동으로 적용됩니다.
+  </p>
+
+  <div class="okx-topbox__cta">
+    <a href="/go/okx-next/"
+       class="okx-topbox__btn"
+       target="_blank"
+       rel="noopener nofollow sponsored">
+      OKX 공식 홈페이지 바로가기
+    </a>
+  </div>
 </div>
-</div>
+
+<style>
+/* Top CTA Box (Bybit 박스 스타일 계열 + OKX 블랙 톤) */
+.okx-topbox{
+  max-width: 980px;
+  margin: 18px auto 18px;
+  padding: 18px 18px 16px;
+  border: 2px solid #111;
+  border-radius: 14px;
+  background: #FFFDF6;
+  box-shadow: 0 8px 22px rgba(0,0,0,.06);
+}
+.okx-topbox__title{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size: 18px;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+.okx-ico{ font-size: 18px; }
+.okx-topbox__desc{
+  margin: 0 0 12px;
+  color: #1f2937;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.okx-topbox__sub{
+  display:block;
+  margin-top:6px;
+  font-size:12px;
+  opacity:.75;
+}
+.okx-topbox__cta{
+  display:flex;
+  justify-content:center;
+}
+.okx-topbox__btn{
+  display:inline-block;
+  width: min(720px, 100%);
+  text-align:center;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #111;
+  color: #fff !important;
+  -webkit-text-fill-color:#fff !important;
+  text-decoration:none;
+  font-weight: 800;
+  letter-spacing: .2px;
+  box-shadow: 0 10px 22px rgba(0,0,0,.12);
+  transition: transform .08s ease, opacity .2s ease, box-shadow .2s ease;
+}
+.okx-topbox__btn:hover{
+  opacity: .96;
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(0,0,0,.14);
+}
+.okx-topbox__btn:active{ transform: translateY(0); }
+
+/* ✅ strong 안 먹는 문제 방지 */
+.okx-topbox strong,
+.okx-topbox b{
+  font-weight: 800 !important;
+}
+
+@media (max-width:520px){
+  .okx-topbox{ padding: 16px 14px 14px; }
+  .okx-topbox__title{ font-size: 16px; }
+}
+@media (prefers-color-scheme: dark){
+  .okx-topbox{
+    background: rgba(255,255,255,.06);
+    border-color: rgba(255,255,255,.55);
+  }
+  .okx-topbox__desc{ color: rgba(255,255,255,.88); }
+  .okx-topbox__btn{ background:#000; }
+}
+</style>
 
 ---
 
@@ -215,7 +304,7 @@ OKX는 **해외 가상자산 거래소** 중 하나로,
   background:#000 !important;
 
   color:#ffffff !important;
-  -webkit-text-fill-color:#ffffff !important; /* ← 이게 핵심 */
+  -webkit-text-fill-color:#ffffff !important;
 
   font-weight:700;
   font-size:16px;
@@ -230,7 +319,6 @@ OKX는 **해외 가상자산 거래소** 중 하나로,
   transition:transform .1s ease, box-shadow .2s ease, opacity .2s ease;
 }
 
-/* 방문 후에도 초록색 방지 */
 .okx-btn:visited,
 .okx-btn:hover,
 .okx-btn:active{
@@ -252,3 +340,70 @@ OKX는 **해외 가상자산 거래소** 중 하나로,
 }
 </style>
 
+---
+
+_Last updated: 2026-01-20_
+
+<!-- ✅ FAQ + HowTo JSON-LD: 파일 맨 아래에 그대로 두기 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "HowTo",
+      "@id": "https://block-w-news.site/okx/#howto",
+      "name": "OKX 가입방법 (모바일 기준)",
+      "description": "모바일에서 OKX 회원가입부터 KYC(본인인증)까지 진행하는 단계별 교육용 가이드.",
+      "inLanguage": "ko-KR",
+      "totalTime": "PT3M",
+      "step": [
+        { "@type": "HowToStep", "name": "거주지 선택 및 약관 동의", "text": "대한민국(South Korea) 선택 후 약관에 동의합니다." },
+        { "@type": "HowToStep", "name": "이메일 또는 전화번호 입력", "text": "이메일 또는 전화번호를 입력해 가입을 진행합니다." },
+        { "@type": "HowToStep", "name": "인증코드 입력", "text": "이메일 또는 문자로 받은 6자리 인증코드를 입력합니다." },
+        { "@type": "HowToStep", "name": "비밀번호 설정", "text": "대문자/숫자/특수문자 포함 조건으로 비밀번호를 설정합니다." },
+        { "@type": "HowToStep", "name": "로그인 후 Verify Now 선택", "text": "로그인 후 Verify Now를 눌러 KYC 인증을 시작합니다." },
+        { "@type": "HowToStep", "name": "신분증 제출 및 셀피 인증", "text": "신분증 업로드 후 얼굴 셀피 인증을 완료합니다." }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://block-w-news.site/okx/#faq",
+      "inLanguage": "ko-KR",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "OKX는 한국어를 지원하나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "본문 안내 기준으로 OKX는 한국어 지원이 중단되어 영어 기반으로 이용해야 한다고 설명합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "OKX에서 원화(KRW) 입출금이 가능한가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "본문 안내 기준으로 원화(KRW) 직접 입출금은 불가하며, P2P 또는 코인 전송 방식이 필요하다고 설명합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "OKX KYC 인증은 얼마나 걸리나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "본문 안내 기준으로 영업일 기준 약 5분 이내 처리될 수 있으며, 즉시 승인되는 경우도 있다고 안내합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "KYC 완료 후 무엇을 확인해야 하나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "KYC 승인 후 Verified 표시 확인, 출금 제한 해제, 추가 보안으로 2FA 설정을 권장한다고 안내합니다."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>

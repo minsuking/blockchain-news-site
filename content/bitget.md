@@ -26,11 +26,11 @@ publishResources = true
   <div class="bgt-topbox__title">
     <span class="bgt-ico" aria-hidden="true">⭐</span>
     <span class="bgt-ico" aria-hidden="true">🎁</span>
-    <strong>수수료 50% 혜택 평생 할인 혜택</strong>
+    <strong>수수료 50% 평생 할인 혜택</strong>
   </div>
 
   <p class="bgt-topbox__desc">
-    아래 링크로 가입하면 <b>거래 수수료 50%</b>할인 코드가 자동으로 적용됩니다.
+    아래 링크로 가입하면 <b>거래 수수료 50% 할인 코드</b>가 자동으로 적용됩니다.
   </p>
 
   <div class="bgt-topbox__cta">
