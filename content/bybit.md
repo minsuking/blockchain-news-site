@@ -97,10 +97,11 @@ date: 2025-01-01T09:00:00+09:00
 }
 @media (prefers-color-scheme: dark){
   .ex-topbox{
-    background: rgba(245,184,0,.10);
+    background: #FFFBEB;              /* 라이트 박스 유지 */
     border-color: rgba(245,184,0,.9);
   }
-  .ex-topbox__desc{ color: rgba(255,255,255,.88); }
+  .ex-topbox__title{ color:#111; }
+  .ex-topbox__desc{ color:#1f2937; }  /* ✅ 흰색 -> 어두운색 */
   .ex-topbox__btn{ color:#111 !important; }
 }
 .ex-topbox strong,
