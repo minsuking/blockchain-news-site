@@ -98,11 +98,13 @@ publishResources = true
   .bgt-topbox__title{ font-size: 16px; }
 }
 @media (prefers-color-scheme: dark){
-  .bgt-topbox{
-    background: rgba(34,184,199,.08);
-    border-color: rgba(34,184,199,.9);
+  .ex-topbox{
+    background: #FFFBEB;              /* 라이트 박스 유지 */
+    border-color: rgba(245,184,0,.9);
   }
-  .bgt-topbox__desc{ color: rgba(255,255,255,.88); }
+  .ex-topbox__title{ color:#111; }
+  .ex-topbox__desc{ color:#1f2937; }  /* ✅ 흰색 -> 어두운색 */
+  .ex-topbox__btn{ color:#111 !important; }
 }
 </style>
 

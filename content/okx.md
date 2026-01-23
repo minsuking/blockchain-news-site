@@ -114,12 +114,13 @@ OKX의 장점, 수수료 정보부터 모바일 회원가입 절차, 본인인�
   .okx-topbox__title{ font-size: 16px; }
 }
 @media (prefers-color-scheme: dark){
-  .okx-topbox{
-    background: rgba(255,255,255,.06);
-    border-color: rgba(255,255,255,.55);
+  .ex-topbox{
+    background: #FFFBEB;              /* 라이트 박스 유지 */
+    border-color: rgba(245,184,0,.9);
   }
-  .okx-topbox__desc{ color: rgba(255,255,255,.88); }
-  .okx-topbox__btn{ background:#000; }
+  .ex-topbox__title{ color:#111; }
+  .ex-topbox__desc{ color:#1f2937; }  /* ✅ 흰색 -> 어두운색 */
+  .ex-topbox__btn{ color:#111 !important; }
 }
 </style>
 
