@@ -47,9 +47,9 @@ date: 2025-01-01T09:00:00+09:00
   max-width: 980px;
   margin: 18px auto 18px;
   padding: 18px 18px 16px;
-  border: 2px solid #F5B800;        /* Bybit 느낌의 노랑 */
+  border: 2px solid #F5B800;
   border-radius: 14px;
-  background: #FFFBEB;              /* 연한 노랑 배경 */
+  background: #FFFBEB;
   box-shadow: 0 8px 22px rgba(0,0,0,.06);
 }
 .ex-topbox__title{
@@ -97,22 +97,39 @@ date: 2025-01-01T09:00:00+09:00
 }
 @media (prefers-color-scheme: dark){
   .ex-topbox{
-    background: #FFFBEB;              /* 라이트 박스 유지 */
+    background: #FFFBEB;
     border-color: rgba(245,184,0,.9);
   }
   .ex-topbox__title{ color:#111; }
-  .ex-topbox__desc{ color:#1f2937; }  /* ✅ 흰색 -> 어두운색 */
+  .ex-topbox__desc{ color:#1f2937; }
   .ex-topbox__btn{ color:#111 !important; }
 }
 .ex-topbox strong,
 .ex-topbox b { font-weight: 800 !important; }
+
+/* ===== 스크린샷 단계 이미지 전용 ===== */
+.img-step{
+  margin: 18px auto;
+  max-width: 600px;
+}
+.img-step img{
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+@media (max-width: 768px){
+  .img-step{ max-width: 100%; margin: 14px auto; }
+}
 </style>
 
 ---
 
 ## ✅ 바이비트 개요
 
-![바이비트 메인화면 예시](/images/join/1.jpg)
+<div class="img-step">
+  <img src="/images/join/1.jpg" alt="바이비트 메인화면 예시">
+</div>
 
 **Bybit(바이비트)**는 2018년에 설립된 글로벌 암호화폐 거래 플랫폼으로,  
 선물거래(Perpetual Futures), 현물거래(Spot Trading), 카피트레이딩 등  
@@ -176,23 +193,34 @@ Bybit은 PC와 모바일을 모두 지원하며,
 ---
 - 접속 후 **‘Sign Up’** 메뉴를 선택합니다.  
 
-2️⃣ **이메일 또는 휴대전화로 회원 가입 방법**  
-![바이비트 가입](/images/join/3.jpg)
+2️⃣ **이메일 또는 휴대전화로 회원 가입 방법**
+
+<div class="img-step">
+  <img src="/images/join/3.jpg" alt="바이비트 가입">
+</div>
+
 - 이메일 주소 입력 후 약관 동의  
-![바이비트 가입](/images/join/4.jpg)
-![바이비트 가입](/images/join/5.jpg)
-![바이비트 가입](/images/join/6.jpg)
+
+<div class="img-step"><img src="/images/join/4.jpg" alt="바이비트 가입"></div>
+<div class="img-step"><img src="/images/join/5.jpg" alt="바이비트 가입"></div>
+<div class="img-step"><img src="/images/join/6.jpg" alt="바이비트 가입"></div>
+
 - 인증번호(Verification Code) 입력  
 - 계정 생성 완료  
 
-3️⃣ **로그인 및 KYC 인증**  
-![KYC 인증 화면 예시](/images/join/7.jpg)
-- 로그인 후 상단 메뉴의 “Verify Now” 선택  
-![KYC 인증 화면 예시](/images/join/8.jpg)
-![KYC 인증 화면 예시](/images/join/10.jpg)
-![KYC 인증 화면 예시](/images/join/11.jpg)
-- 국적: Korea → 신분증(주민등록증, 운전면허증, 여권 중 택1) 제출  
+3️⃣ **로그인 및 KYC 인증**
 
+<div class="img-step">
+  <img src="/images/join/7.jpg" alt="KYC 인증 화면 예시">
+</div>
+
+- 로그인 후 상단 메뉴의 “Verify Now” 선택  
+
+<div class="img-step"><img src="/images/join/8.jpg" alt="KYC 인증 화면 예시"></div>
+<div class="img-step"><img src="/images/join/10.jpg" alt="KYC 인증 화면 예시"></div>
+<div class="img-step"><img src="/images/join/11.jpg" alt="KYC 인증 화면 예시"></div>
+
+- 국적: Korea → 신분증(주민등록증, 운전면허증, 여권 중 택1) 제출  
 - 셀카(Selfie) 촬영 후 자동 인증(2~5분 내 완료)
 
 > ⚠️ 미국(United States) 사용자는 인증이 제한됩니다.  
@@ -202,19 +230,27 @@ Bybit은 PC와 모바일을 모두 지원하며,
 
 ## 🔐 바이비트 KYC(본인인증) 방법 상세
 
-![KYC 제출 예시](/images/join/12.jpg)
+<div class="img-step">
+  <img src="/images/join/12.jpg" alt="KYC 제출 예시">
+</div>
 
 KYC는 자금세탁방지(AML) 규정을 준수하기 위한 기본 절차로,  
 모든 글로벌 거래소에서 필수적으로 요구됩니다.
 
 인증 과정은 다음과 같습니다.
 
-1. 본인 확인용 신분증 업로드 
-![KYC 인증 화면 예시](/images/join/12.jpg) 
+1. 본인 확인용 신분증 업로드
+
+<div class="img-step"><img src="/images/join/12.jpg" alt="KYC 인증 화면 예시"></div>
+
 2. 얼굴 인식(Selfie) 사진 촬영  
-![KYC 인증 화면 예시](/images/join/13.jpg)
+
+<div class="img-step"><img src="/images/join/13.jpg" alt="KYC 인증 화면 예시"></div>
+
 3. 자동 검증 시스템 통과 후 “Verified ID” 문구 표시  
-![KYC 인증 화면 예시](/images/join/14.jpg)
+
+<div class="img-step"><img src="/images/join/14.jpg" alt="KYC 인증 화면 예시"></div>
+
 > 인증은 보통 2~5분 내 자동으로 처리되며,  
 > 승인 후 거래 및 리워드 수령 기능이 활성화됩니다.
 
