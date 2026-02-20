@@ -59,7 +59,7 @@ Bybit(바이비트) 가입방법을 검색해 이 페이지에 오셨다면
 
 ---
 
-<div class="img-step">
+<div>
   <img src="/images/join/fee.png" alt="바이비트 바이낸스 수수료 비교">
 </div>
 
