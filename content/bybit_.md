@@ -19,6 +19,7 @@ date: 2026-01-01T09:00:00+09:00
       바이낸스 공식 홈페이지 바로가기
     </a>
   </div>
+  <br/>
   <div class="ex-topbox__cta">
     <a href="/how-to-Sign-Up-for-Binance/" class="ex-topbox__btn" target="_blank" rel="noopener nofollow sponsored">
       바이낸스 가입 방법 자세히 보기
