@@ -135,3 +135,84 @@ Bybit(바이비트) 가입방법을 검색해 이 페이지에 오셨다면
 ※ 수수료 정책은 변경될 수 있습니다.
 
 _Last updated: 2026-01-20_
+<style>
+/* Top CTA Box (Bybit 톤 + 예시 이미지 스타일) */
+.ex-topbox{
+  max-width: 980px;
+  margin: 18px auto 18px;
+  padding: 18px 18px 16px;
+  border: 2px solid #F5B800;
+  border-radius: 14px;
+  background: #FFFBEB;
+  box-shadow: 0 8px 22px rgba(0,0,0,.06);
+}
+.ex-topbox__title{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size: 18px;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+.ex-ico{ font-size: 18px; }
+.ex-topbox__desc{
+  margin: 0 0 14px;
+  color: #1f2937;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.ex-topbox__cta{
+  display:flex;
+  justify-content:center;
+}
+.ex-topbox__btn{
+  display:inline-block;
+  width: min(720px, 100%);
+  text-align:center;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #F5B800;
+  color: #111 !important;
+  text-decoration:none;
+  font-weight: 800;
+  letter-spacing: .2px;
+  box-shadow: 0 10px 22px rgba(0,0,0,.12);
+  transition: transform .08s ease, opacity .2s ease, box-shadow .2s ease;
+}
+.ex-topbox__btn:hover{
+  opacity: .96;
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(0,0,0,.14);
+}
+.ex-topbox__btn:active{ transform: translateY(0); }
+@media (max-width:520px){
+  .ex-topbox{ padding: 16px 14px 14px; }
+  .ex-topbox__title{ font-size: 16px; }
+}
+@media (prefers-color-scheme: dark){
+  .ex-topbox{
+    background: #FFFBEB;
+    border-color: rgba(245,184,0,.9);
+  }
+  .ex-topbox__title{ color:#111; }
+  .ex-topbox__desc{ color:#1f2937; }
+  .ex-topbox__btn{ color:#111 !important; }
+}
+.ex-topbox strong,
+.ex-topbox b { font-weight: 800 !important; }
+
+/* ===== 스크린샷 단계 이미지 전용 ===== */
+.img-step{
+  margin: 18px auto;
+  max-width: 600px;
+}
+.img-step img{
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+@media (max-width: 768px){
+  .img-step{ max-width: 100%; margin: 14px auto; }
+}
+</style>
