@@ -1,68 +1,78 @@
 +++
-title = "Bybit 공식 안내 페이지"
-description = "Bybit 거래소 이용자 안내 페이지입니다. 1~2초 후 공식 홈페이지로 자동 이동합니다."
+title = "Bybit Official Information Page"
+description = "Pre-visit information page for Bybit exchange users. You will be automatically redirected to the official website in 1–2 seconds."
 url = "/go/bybit-next/"
 draft = false
 +++
 
-# 바이비트 거래소 핵심 안내
+# Bybit Exchange – Key Information Page
 
-이 페이지는 **바이비트(Bybit)** 의 기본 특징, 수수료 구조, 보안 설정을  
-간단히 정리한 **사전 안내 페이지**입니다.  
-외부 사이트로 바로 이동하지 않고, 이용 전 꼭 확인해야 할 핵심 정보만 제공합니다.
+This page provides a brief overview of **Bybit**, including its core features,  
+fee structure, and security settings.
 
----
-
-## 🔗 바이비트 공식 홈페이지
-> 아래 정보 확인 후 1~2초 뒤 자동 이동됩니다.
+Instead of redirecting immediately to an external site,  
+we provide essential information you should review before proceeding.
 
 ---
 
-## 📌 주요 특징
+## 🔗 Bybit Official Website
 
-- **2단계 인증(OTP)** 및 다중 보안 옵션 제공  
-- **현물 / 파생상품 / 카피트레이딩** 지원  
-- **스테이블코인 기반** 거래 중심  
-- **원화 직접 입출금 불가**  
-  - 대신 USDT, BTC 등 암호화폐 또는 해외 결제 수단 이용
+> After reviewing the information below,  
+> you will be automatically redirected in 1–2 seconds.
 
 ---
 
-## ❓ 자주 묻는 질문 (FAQ)
+## 📌 Key Features
 
-**Q. 보안은 어떻게 설정하나요?**  
-A. 가입 후 즉시 **Google OTP(2FA)** 설정을 권장합니다.  
-   – 로그인, 출금, 보안 변경 등 필수 보호 기능 지원  
-
-**Q. 수수료는 얼마나 되나요?**  
-A. 바이비트는 **메이커/테이커 수수료 구조**를 적용합니다.  
-   등급(Tier) 및 시장 상황에 따라 달라질 수 있습니다.  
-   (참고: 기본적으로 메이커가 더 저렴한 편입니다.)
+- **Two-Factor Authentication (2FA)** and multiple security options  
+- Supports **Spot Trading / Derivatives / Copy Trading**  
+- Primarily **stablecoin-based trading environment**  
+- **No direct KRW (Korean Won) deposits or withdrawals**  
+  - Users typically utilize USDT, BTC, or other cryptocurrencies
 
 ---
 
-## 🔍 자세한 정보는?
-더 상세한 내용과 최신 이벤트는  
-**바이비트 공식 홈페이지에서 직접 확인**하는 것을 권장합니다.
+## ❓ Frequently Asked Questions (FAQ)
+
+**Q. How do I set up security?**  
+A. After registration, it is strongly recommended to enable  
+**Google Authenticator (2FA)** immediately.  
+It protects login, withdrawals, and security changes.
+
+**Q. What are the trading fees?**  
+A. Bybit applies a **Maker/Taker fee structure**.  
+Fees may vary depending on user tier and market conditions.  
+(Generally, Maker fees are lower than Taker fees.)
 
 ---
 
-## ⚠️ 투자 전 유의사항
+## 🔍 Need More Details?
 
-본 안내는 **정보 제공 목적**이며, 투자 권유가 아닙니다.  
-암호화폐 거래는 **높은 가격 변동성과 손실 위험**이 존재하므로  
-모든 결정은 **개인의 판단과 책임 하에** 이루어져야 합니다.
+For the latest updates, promotions, and detailed fee schedules,  
+we recommend checking the **official Bybit website directly**.
 
 ---
 
-# 🚀 바이비트 공식 홈페이지로 이동 중입니다…
+## ⚠️ Important Notice
 
-보안을 위해 **내부 안내 페이지를 거쳐 이동**합니다.  
-**1–2초 후 자동으로 이동**합니다.
+This page is provided for **informational purposes only**  
+and does not constitute financial advice or investment solicitation.
 
-자동 이동이 되지 않는 경우 아래를 클릭하세요.
+Cryptocurrency trading involves **high volatility and risk of loss**.  
+All decisions should be made at your own discretion and responsibility.
 
-👉 [바이비트 공식 홈페이지로 이동](https://partner.bybit.com/b/BLOCKWNEWS)
+---
+
+# 🚀 Redirecting to the Official Bybit Website…
+
+For security and transparency,  
+you are being redirected via this internal information page.
+
+You will be automatically redirected in **1–2 seconds**.
+
+If automatic redirection does not occur, please click below:
+
+👉 [Go to the Official Bybit Website](https://partner.bybit.com/b/BLOCKWNEWS)
 
 ---
 

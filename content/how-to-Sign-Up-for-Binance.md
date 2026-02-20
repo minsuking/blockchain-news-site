@@ -309,7 +309,7 @@ showPrevNext: false
       아래 링크로 가입하시면 거래 수수료 20% 할인 코드가 자동으로 적용됩니다.
     </div>
     <div style="margin-top:14px;">
-      <a href="https://accounts.binance.com/register?ref=BLOCKDNEWS"
+      <a href="https://accounts.binance.com/register?ref=119113960"
          target="_blank"
          rel="noopener noreferrer"
          style="
