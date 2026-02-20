@@ -21,7 +21,7 @@ Bybit(바이비트) 가입방법을 검색해 이 페이지에 오셨다면
 수수료 차이는 누적될수록 수익률에 직접적인 영향을 줍니다.
 
 ---
-<div>
+<div class="img-responsive">
   <img src="/images/join/fee.png" alt="바이비트 바이낸스 수수료 비교">
 </div>
 
@@ -230,5 +230,15 @@ _Last updated: 2026-01-20_
 }
 @media (max-width: 768px){
   .img-step{ max-width: 100%; margin: 14px auto; }
+}
+.img-responsive {
+  text-align: center;
+  margin: 24px auto;
+}
+
+.img-responsive img {
+  width: 450px;      /* 원본 크기 유지 */
+  max-width: 100%;   /* 화면이 더 작으면 자동 축소 */
+  height: auto;      /* 비율 유지 */
 }
 </style>
