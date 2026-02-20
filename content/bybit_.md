@@ -16,23 +16,26 @@ date: 2026-01-01T09:00:00+09:00
   <img src="/images/join/fee.png" alt="바이비트 vs 바이낸스 수수료 비교 (바이낸스 20% 평생 할인 적용 기준)">
 </div>
 
-<!-- 🔥 이미지 바로 아래 CTA -->
-<div class="ex-topbox" role="note" aria-label="바이낸스 평생 할인 안내">
+<div class="ex-topbox ex-pick" role="note" aria-label="바이낸스 평생 할인 안내">
+
+  <span class="ex-pick-badge">TOP PICK</span>
+
   <div class="ex-topbox__title">
     <span class="ex-ico">⭐</span>
     <span class="ex-ico">🎁</span>
-    <strong>평생 20% 수수료 할인 적용</strong>
+    <strong>바이낸스 평생 20% 수수료 할인 적용</strong>
   </div>
 
   <p class="ex-topbox__desc">
-    이 경로로 가입해야 <b>평생 20% 할인</b>이 자동 적용됩니다.
+    이 경로로 <b>바이낸스</b> 가입 시 <b>평생 20% 할인</b>이 자동 적용됩니다.
   </p>
 
   <div class="ex-topbox__cta">
     <a href="/how-to-sign-up-for-binance/" class="ex-topbox__btn">
-      🔥 지금 할인 적용 받고 시작하기 (가입방법 포함)
+      🔥 바이낸스 가입 + 평생 20% 할인 적용받기
     </a>
   </div>
+
 </div>
 
 ---
@@ -244,5 +247,24 @@ _Last updated: 2026-01-20_
   width: 450px !important;      /* 원본 크기 유지 */
   max-width: 100%;   /* 화면이 더 작으면 자동 축소 */
   height: auto;      /* 비율 유지 */
+}
+/* TOP PICK 뱃지 */
+.ex-pick{
+  position: relative;
+  overflow: visible; /* 뱃지가 잘리지 않도록 */
+}
+
+.ex-pick-badge{
+  position: absolute;
+  top: -12px;        /* 테두리 위로 올리기 */
+  left: 18px;
+  background: #ff3b30;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 900;
+  padding: 6px 12px;
+  border-radius: 999px;
+  box-shadow: 0 6px 16px rgba(0,0,0,.15);
+  letter-spacing: .4px;
 }
 </style>
