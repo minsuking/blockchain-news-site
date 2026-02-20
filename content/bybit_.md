@@ -8,59 +8,43 @@ date: 2026-01-01T09:00:00+09:00
 
 ## 바이비트 가입을 찾고 계신가요?
 
-바이비트 사이트나 가입방법을 찾다가 이 페이지에 오셨다면,  
-지금 “어디서 시작할지” 결정을 앞두고 계신 상황일 가능성이 큽니다.
+가입 전에 단 **10초만** 확인하세요.
 
-그런데 가입을 누르기 전에 **딱 10초만** 확인하셔야 할 게 있습니다.
-
-### ❗ 지금 시작을 ‘바이비트’로 하면 손해가 누적될 수 있습니다
-
----
+### ❗ 바이비트로 시작하면 수수료가 더 높을 수 있습니다
 
 <div class="img-responsive">
   <img src="/images/join/fee.png" alt="바이비트 vs 바이낸스 수수료 비교 (바이낸스 20% 평생 할인 적용 기준)">
 </div>
 
----
-
-거래소는 기능보다 **수수료 구조**가 더 중요합니다.  
-특히 선물·단타·스캘핑처럼 **거래 횟수가 늘어나는 스타일**이라면  
-수수료 차이는 “한 번”이 아니라 **매번** 빠져나갑니다.
-
-그리고 이건 나중에 바꾸면 끝이 아니라,  
-**시작부터 누적된 비용은 되돌릴 수 없습니다.**
-
-### ✅ 그래서 ‘처음부터’ 바이낸스가 유리한 이유
-
-바이낸스는 **평생 20% 수수료 할인 적용**이 가능한 구조라  
-같은 거래를 해도 **장기적으로 비용이 더 낮아질 수 있습니다.**
-
----
-<!-- 🔥 최상단 CTA (이미지보다 위로 이동) -->
+<!-- 🔥 이미지 바로 아래 CTA -->
 <div class="ex-topbox" role="note" aria-label="바이낸스 평생 할인 안내">
   <div class="ex-topbox__title">
-    <span class="ex-ico" aria-hidden="true">⭐</span>
-    <span class="ex-ico" aria-hidden="true">🎁</span>
-    <strong>수수료 20% 평생 할인 혜택</strong>
+    <span class="ex-ico">⭐</span>
+    <span class="ex-ico">🎁</span>
+    <strong>평생 20% 수수료 할인 적용</strong>
   </div>
 
   <p class="ex-topbox__desc">
-    아래 링크의 가입 방법으로 가입하면 <b>거래 수수료 20% 할인 코드</b>가 자동으로 적용됩니다.
+    이 경로로 가입해야 <b>평생 20% 할인</b>이 자동 적용됩니다.
   </p>
+
   <div class="ex-topbox__cta">
-    <a href="/go/binance-next/" class="ex-topbox__btn" target="_blank" rel="noopener nofollow sponsored">
-      공식 바이낸스 홈페이지 바로가기
+    <a href="/how-to-sign-up-for-binance/" class="ex-topbox__btn">
+      🔥 지금 할인 적용 받고 시작하기 (가입방법 포함)
     </a>
   </div>
 </div>
 
 ---
 
-  <div class="ex-topbox__cta">
-    <a href="/how-to-sign-up-for-ninance/" class="ex-topbox__btn" target="_blank" rel="noopener nofollow sponsored">
-      바이낸스 가입 방법 바로가기
-    </a>
-  </div>
+같은 거래라도  
+수수료는 **매번 빠져나갑니다.**
+
+특히 선물·단타 거래라면  
+이 차이는 계속 누적됩니다.
+
+지금 시작한다면  
+비용이 더 낮은 구조를 선택하는 것이 합리적입니다.
 
 ---
 
@@ -257,7 +241,7 @@ _Last updated: 2026-01-20_
 }
 
 .img-responsive img {
-  width: 450px;      /* 원본 크기 유지 */
+  width: 450px !important;      /* 원본 크기 유지 */
   max-width: 100%;   /* 화면이 더 작으면 자동 축소 */
   height: auto;      /* 비율 유지 */
 }
