@@ -268,4 +268,5 @@ _Last updated: 2026-01-20_
   box-shadow: 0 6px 16px rgba(0,0,0,.15);
   letter-spacing: .4px;
 }
+strong { font-weight: 800 !important; }
 </style>
