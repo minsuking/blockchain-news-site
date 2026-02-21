@@ -31,7 +31,7 @@ date: 2026-01-01T09:00:00+09:00
   </p>
 
   <div class="ex-topbox__cta">
-    <a href="/how-to-sign-up-for-binance/" class="ex-topbox__btn">
+    <a href="/go/binance-next/" class="ex-topbox__btn">
       🔥 바이낸스 가입 + 평생 20% 할인 적용받기
     </a>
   </div>
