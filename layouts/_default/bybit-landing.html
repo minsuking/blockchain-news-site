@@ -191,6 +191,15 @@
     .bybit-landing .btn{ min-width:unset; }
   }
   header.site-header{ display:none !important; }
+    /* Hide the theme footer ONLY inside this landing */
+  .bybit-landing ~ footer,
+  .bybit-landing footer.site-footer,
+  .bybit-landing footer.footer,
+  .bybit-landing .footer,
+  footer.footer,
+  footer.site-footer {
+    display:none !important;
+}
 </style>
 
 <div class="bybit-landing">
@@ -403,7 +412,20 @@
 
   </div>
 </div>
-
+<footer style="margin-top:40px;border-top:1px solid rgba(255,255,255,.08);">
+  <div style="max-width:1080px;margin:0 auto;padding:22px 16px 28px;color:#a7b0be;">
+    <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;">
+      <div style="font-weight:900;color:#e8edf3;">Blockchain Newsroom</div>
+      <div style="font-size:12px;">Information only • Not financial advice</div>
+    </div>
+    <div style="margin-top:10px;font-size:12px;line-height:1.6;">
+      Disclosure: Links may be sponsored/affiliate links. Fees/promotions may change.
+    </div>
+    <div style="margin-top:10px;font-size:12px;opacity:.9;">
+      © 2026 Blockchain Newsroom • Contact: fwowi@naver.com
+    </div>
+  </div>
+</footer>
 <script>
   document.addEventListener("click", function(e){
     const a = e.target.closest("a[data-cta]");
