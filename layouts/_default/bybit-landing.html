@@ -190,16 +190,43 @@
     .bybit-landing .grid{ grid-template-columns: 1.2fr .8fr; }
     .bybit-landing .btn{ min-width:unset; }
   }
-  header.site-header{ display:none !important; }
-    /* Hide the theme footer ONLY inside this landing */
-  .bybit-landing ~ footer,
-  .bybit-landing footer.site-footer,
-  .bybit-landing footer.footer,
-  .bybit-landing .footer,
-  footer.footer,
-  footer.site-footer {
-    display:none !important;
-}
+  /* =========================
+   Hide theme header (robust)
+   ========================= */
+
+  /* 1) Most themes wrap header in these */
+  .bybit-landing ~ header,
+  .bybit-landing ~ .header,
+  .bybit-landing ~ .site-header,
+  .bybit-landing ~ nav,
+  .bybit-landing ~ .navbar {
+    display: none !important;
+  }
+
+  /* 2) If header is inside main layout container */
+  header, nav {
+    /* only hide if it belongs to theme header area */
+  }
+
+  header.site-header,
+  header.header,
+  header.navbar,
+  header#header,
+  nav.site-nav,
+  nav.navbar,
+  .navbar,
+  .site-header,
+  .header,
+  .topbar {
+    display: none !important;
+  }
+
+  /* 3) In some Hugo themes the header is inside `.page` or `.wrapper` */
+  .page header,
+  .wrapper header,
+  .container header {
+    display: none !important;
+  }
 </style>
 
 <div class="bybit-landing">
