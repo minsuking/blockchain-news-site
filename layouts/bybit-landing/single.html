@@ -1,247 +1,949 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{{ .Title }}</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="{{ .Params.description }}">
-  <meta name="x-bybit-landing" content="1">
+  <meta name="description" content="{{ .Params.description }}" />
+  <meta name="robots" content="index,follow" />
+
   <style>
+    :root{
+      --bg:#0b0d10;
+      --panel:#0f1318;
+      --panel2:#10141a;
+      --text:#e8edf3;
+      --muted:#a7b0be;
+      --line:rgba(255,255,255,.10);
+      --line2:rgba(255,255,255,.07);
+      --accent:#f5b800;      /* Bybit-ish gold */
+      --accent2:#ffcc33;
+      --good:#22c55e;
+      --shadow:0 18px 60px rgba(0,0,0,.45);
+      --r16:16px;
+      --r22:22px;
+      --max:1120px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+    }
+
+    *{ box-sizing:border-box; }
+    html, body{ height:100%; }
     body{
       margin:0;
-      background:#0b0d10;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
-      color:#e8edf3;
+      background: radial-gradient(1200px 600px at 30% -10%, rgba(245,184,0,.18), transparent 60%),
+                  radial-gradient(900px 500px at 85% 10%, rgba(245,184,0,.08), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      font-family:var(--font);
     }
 
-    .wrap{
-      max-width:1080px;
-      margin:0 auto;
-      padding:28px 16px 64px;
-    }
-
+    a{ color:inherit; }
+    .wrap{ max-width:var(--max); margin:0 auto; padding:26px 16px 64px; }
     .hero{
-      border:1px solid rgba(255,255,255,.08);
-      background:linear-gradient(180deg, rgba(245,184,0,.12), rgba(16,20,26,.65));
-      border-radius:22px;
-      padding:22px 18px;
+      border:1px solid var(--line2);
+      background: linear-gradient(180deg, rgba(245,184,0,.14), rgba(16,20,26,.70));
+      border-radius:var(--r22);
+      padding:22px 18px 18px;
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero::after{
+      content:"";
+      position:absolute; inset:-40px -40px auto auto;
+      width:240px; height:240px;
+      background: radial-gradient(circle at 30% 30%, rgba(245,184,0,.22), transparent 60%);
+      filter: blur(10px);
+      pointer-events:none;
     }
 
+    .toprow{ display:flex; justify-content:space-between; align-items:flex-start; gap:12px; flex-wrap:wrap; }
+    .brand{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
     .pill{
-      display:inline-block;
-      padding:6px 12px;
-      border-radius:999px;
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px; border-radius:999px;
       background:rgba(245,184,0,.16);
       border:1px solid rgba(245,184,0,.35);
-      color:#ffcc33;
+      color:var(--accent2);
       font-weight:900;
+      letter-spacing:.2px;
       font-size:12px;
-      margin-right:6px;
+      white-space:nowrap;
     }
 
-    h1{
-      font-size:26px;
-      margin:12px 0 6px;
-      font-weight:900;
-    }
-
-    .sub{
-      color:#a7b0be;
-      font-size:14px;
-      line-height:1.6;
-    }
+    h1{ margin:12px 0 8px; font-size:28px; line-height:1.25; font-weight:950; }
+    .sub{ margin:0; color:var(--muted); font-size:14px; line-height:1.65; max-width: 78ch; }
+    .ctaRow{ display:flex; gap:10px; flex-wrap:wrap; margin-top:16px; }
 
     .btn{
-      display:inline-block;
-      padding:14px 16px;
-      border-radius:14px;
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:14px 16px; border-radius:14px;
+      border:1px solid var(--line2);
       text-decoration:none;
-      font-weight:900;
-      margin-top:14px;
-      margin-right:10px;
+      font-weight:950;
+      letter-spacing:.2px;
+      transition: transform .08s ease, filter .2s ease, background .2s ease;
+      white-space:nowrap;
     }
-
-    .primary{
-      background:#f5b800;
-      color:#111;
+    .btnPrimary{
+      background:var(--accent);
+      color:#111 !important;
+      border-color:rgba(245,184,0,.65);
+      box-shadow:0 14px 30px rgba(245,184,0,.18);
     }
-
-    .ghost{
-      border:1px solid rgba(255,255,255,.1);
-      color:#e8edf3;
+    .btnPrimary:hover{ filter:brightness(1.03); transform:translateY(-1px); }
+    .btnGhost{
+      background:rgba(255,255,255,.04);
+      color:var(--text) !important;
     }
+    .btnGhost:hover{ background:rgba(255,255,255,.06); transform:translateY(-1px); }
 
-    .grid{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:14px;
-      margin-top:20px;
+    .section{ margin-top:18px; }
+    .sectionTitle{
+      display:flex; align-items:baseline; justify-content:space-between; gap:10px;
+      margin:0 0 10px;
     }
+    .sectionTitle h2{ margin:0; font-size:18px; font-weight:950; }
+    .sectionTitle .hint{ margin:0; color:var(--muted); font-size:12px; line-height:1.45; }
 
-    @media(min-width:960px){
-      .grid{
-        grid-template-columns:1.2fr .8fr;
-      }
+    .grid2{ display:grid; grid-template-columns:1fr; gap:14px; }
+    @media (min-width: 980px){
+      .grid2{ grid-template-columns: 1.15fr .85fr; }
     }
 
     .card{
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:16px;
-      padding:16px;
-      background:rgba(255,255,255,.02);
+      border:1px solid var(--line2);
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));
+      border-radius:var(--r16);
+      padding:16px 14px;
     }
+    .muted{ color:var(--muted); font-size:13px; line-height:1.65; margin:0; }
 
+    /* Exchange ranking list (screenshot-like) */
+    .rank{ display:flex; flex-direction:column; gap:10px; margin-top:10px; }
     .row{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:14px;
-      padding:12px;
-      margin-top:10px;
+      display:flex; gap:10px; align-items:center; justify-content:space-between;
+      border:1px solid var(--line2);
+      border-radius:16px;
+      padding:12px 12px;
+      background: rgba(0,0,0,.12);
+      box-shadow: 0 8px 22px rgba(0,0,0,.18);
+    }
+    .left{ display:flex; align-items:center; gap:12px; min-width:0; }
+    .badge{
+      width:36px; height:36px; border-radius:14px;
+      display:flex; align-items:center; justify-content:center;
+      font-weight:950;
+      background:rgba(245,184,0,.16);
+      border:1px solid rgba(245,184,0,.35);
+      color:var(--accent2);
+      flex:0 0 auto;
+    }
+    .logo{
+      width:40px; height:40px; border-radius:16px;
+      display:flex; align-items:center; justify-content:center;
+      border:1px solid var(--line2);
+      background: rgba(255,255,255,.03);
+      flex:0 0 auto;
+      font-weight:950;
+      color:#fff;
+    }
+    .meta{ min-width:0; }
+    .nameLine{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+    .name{ margin:0; font-weight:950; font-size:15px; }
+    .subline{ margin:2px 0 0; color:var(--muted); font-size:12px; line-height:1.45; }
+
+    .chips{ display:flex; gap:6px; flex-wrap:wrap; margin-top:7px; }
+    .chip{
+      font-size:11px; font-weight:900;
+      padding:4px 8px; border-radius:999px;
+      border:1px solid var(--line2);
+      background:rgba(255,255,255,.03);
+      color:var(--muted);
+      white-space:nowrap;
     }
 
+    .ratingBox{
+      display:flex; align-items:center; gap:10px;
+      margin-left:auto;
+      color:var(--muted);
+      font-size:12px;
+    }
+    .ratingNum{
+      font-size:22px; font-weight:950; color:#fff;
+      line-height:1;
+    }
+    .stars{ letter-spacing:1px; color: var(--accent2); }
+    .grade{ color:var(--muted); font-size:12px; }
+
+    .right{ display:flex; align-items:center; gap:10px; flex:0 0 auto; }
     .smallBtn{
-      padding:8px 12px;
-      border-radius:12px;
-      text-decoration:none;
-      font-weight:900;
-      background:#f5b800;
-      color:#111;
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      padding:10px 12px; border-radius:12px;
+      text-decoration:none; font-weight:950;
+      border:1px solid var(--line2);
+      background:rgba(255,255,255,.04);
+      color:var(--text) !important;
+      white-space:nowrap;
+      transition: transform .08s ease, filter .2s ease, background .2s ease;
     }
+    .smallBtn.primary{
+      background:var(--accent);
+      color:#111 !important;
+      border-color:rgba(245,184,0,.65);
+    }
+    .smallBtn:hover{ filter:brightness(1.03); transform:translateY(-1px); }
 
+    /* Fee table */
     table{
       width:100%;
-      border-collapse:collapse;
+      border-collapse:separate;
+      border-spacing:0;
+      overflow:hidden;
+      border-radius:14px;
+      border:1px solid var(--line2);
       margin-top:10px;
+      background: rgba(0,0,0,.14);
     }
-
     th, td{
-      padding:12px;
-      border-bottom:1px solid rgba(255,255,255,.08);
-      text-align:left;
+      padding:12px 10px;
       font-size:13px;
+      border-bottom:1px solid var(--line2);
+      text-align:left;
+      vertical-align: middle;
     }
-
     th{
       background:rgba(255,255,255,.05);
+      font-weight:950;
+    }
+    tr:last-child td{ border-bottom:none; }
+
+    .note{ margin-top:10px; font-size:12px; color:var(--muted); line-height:1.55; }
+
+    .callout{
+      margin-top:14px;
+      padding:14px 14px;
+      border:1px solid var(--line2);
+      border-radius:14px;
+      background:rgba(255,255,255,.03);
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.6;
+    }
+    .callout strong{ color:#fff; }
+
+    /* Full comparison cards */
+    .compareGrid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:12px;
+    }
+    @media (min-width: 980px){
+      .compareGrid{ grid-template-columns: 1fr 1fr; }
+    }
+    .bigCard{
+      border:1px solid var(--line2);
+      border-radius:18px;
+      background: rgba(255,255,255,.02);
+      padding:14px;
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+    }
+    .bigLeft{
+      display:flex; gap:12px; align-items:flex-start; min-width:0;
+    }
+    .bigNum{
+      width:38px; height:38px; border-radius:16px;
+      display:flex; align-items:center; justify-content:center;
+      font-weight:950;
+      background:rgba(255,184,0,.14);
+      border:1px solid rgba(245,184,0,.30);
+      color:var(--accent2);
+      flex:0 0 auto;
+    }
+    .bigLogo{
+      width:46px; height:46px; border-radius:18px;
+      border:1px solid var(--line2);
+      background: rgba(255,255,255,.03);
+      display:flex; align-items:center; justify-content:center;
+      font-weight:950;
+      flex:0 0 auto;
+    }
+    .bigMeta{ min-width:0; }
+    .bigTitle{ margin:0; font-weight:950; font-size:16px; }
+    .bigDesc{ margin:3px 0 0; color:var(--muted); font-size:12px; line-height:1.55; }
+    .bigList{
+      margin:10px 0 0;
+      padding:0;
+      list-style:none;
+      color:var(--text);
+      font-size:12px;
+      line-height:1.65;
+    }
+    .bigList li{ margin:4px 0; color:var(--muted); }
+    .bigList li::before{
+      content:"✓";
+      color: var(--good);
+      margin-right:8px;
+      font-weight:950;
+    }
+    .bigRight{
+      margin-left:auto;
+      display:flex;
+      flex-direction:column;
+      align-items:flex-end;
+      gap:10px;
+      flex:0 0 auto;
+    }
+    .bigRating{
+      text-align:right;
+      min-width:110px;
+    }
+    .bigRating .num{ font-size:26px; font-weight:950; color:#fff; line-height:1; }
+    .bigRating .stars{ color:var(--accent2); font-size:12px; margin-top:4px; }
+    .bigRating .label{ color:var(--muted); font-size:12px; margin-top:2px; }
+
+    .visitBtn{
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid rgba(245,184,0,.55);
+      background: var(--accent);
+      color:#111 !important;
+      text-decoration:none;
+      font-weight:950;
+      white-space:nowrap;
+      box-shadow:0 14px 26px rgba(245,184,0,.16);
+      transition: transform .08s ease, filter .2s ease;
+    }
+    .visitBtn:hover{ filter:brightness(1.03); transform:translateY(-1px); }
+
+    /* FAQ */
+    .faq{ display:flex; flex-direction:column; gap:10px; }
+    details{
+      border:1px solid var(--line2);
+      border-radius:16px;
+      background: rgba(255,255,255,.02);
+      padding:12px 12px;
+    }
+    summary{
+      cursor:pointer;
+      font-weight:950;
+      list-style:none;
+      outline:none;
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    .faqBody{
+      margin-top:10px;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.7;
+    }
+    .kbd{
+      display:inline-block;
+      padding:2px 8px;
+      border-radius:8px;
+      border:1px solid var(--line2);
+      background: rgba(0,0,0,.18);
+      color: #dfe6f0;
+      font-weight:900;
+      font-size:12px;
+      vertical-align:middle;
     }
 
+    /* Footer */
     footer{
-      margin-top:40px;
-      border-top:1px solid rgba(255,255,255,.08);
-      padding:22px 16px;
+      margin-top:44px;
+      border-top:1px solid var(--line2);
+      padding:22px 16px 30px;
+      color:var(--muted);
       font-size:12px;
-      color:#a7b0be;
       text-align:center;
+      background: rgba(0,0,0,.10);
     }
+    footer a{
+      color: var(--text);
+      font-weight:950;
+      text-decoration:none;
+      border-bottom:1px solid rgba(255,255,255,.18);
+    }
+    footer a:hover{ border-bottom-color: rgba(245,184,0,.70); }
   </style>
 </head>
 
 <body>
+  <div class="wrap">
 
-<div class="wrap">
-
-  <section class="hero">
-    <div>
-      <span class="pill">⭐ TOP PICK</span>
-      <span class="pill">Bybit Theme</span>
-      <span class="pill">Updated: 2026</span>
-    </div>
-
-    <h1>Official Bybit Access + Exchange Ranking</h1>
-
-    <p class="sub">
-      If you searched “Bybit site / Bybit address”, you’re in the right place.
-      Use the top button to proceed to Bybit.
-    </p>
-
-    <a class="btn primary" href="/go/bybit-next/" target="_blank" rel="noopener nofollow sponsored">
-      🔥 Go to Bybit (Top Access)
-    </a>
-
-    <a class="btn ghost" href="#ranking">
-      Compare Top Exchanges ↓
-    </a>
-  </section>
-
-
-  <div class="grid">
-
-    <section id="ranking" class="card">
-      <h2>Top Exchange Ranking</h2>
-
-      <div class="row">
-        <div>1. Bybit</div>
-        <a class="smallBtn" href="/go/bybit-next/" target="_blank">Open</a>
+    <!-- HERO: Bybit top intent -->
+    <section class="hero">
+      <div class="toprow">
+        <div class="brand">
+          <span class="pill">⭐ TOP PICK</span>
+          <span class="pill">Bybit Theme</span>
+          <span class="pill">Updated: 2026</span>
+        </div>
       </div>
 
-      <div class="row">
-        <div>2. Binance</div>
-        <a class="smallBtn" href="/go/binance-next/" target="_blank">Open</a>
+      <h1>Official Bybit Access + Exchange Ranking</h1>
+      <p class="sub">
+        If you searched “Bybit site / Bybit address”, you’re in the right place.<br>
+        Use the top button to proceed to <strong>Bybit</strong>. Compare alternatives below if you want different features or fee structures.
+      </p>
+
+      <div class="ctaRow">
+        <a class="btn btnPrimary"
+           href="/go/bybit-next/"
+           target="_blank" rel="noopener nofollow sponsored"
+           data-cta="bybit-top">
+          🔥 Go to Bybit (Top Access)
+        </a>
+
+        <a class="btn btnGhost" href="#quick-compare" data-cta="scroll-quick">
+          Compare Top Exchanges ↓
+        </a>
       </div>
 
-      <div class="row">
-        <div>3. OKX</div>
-        <a class="smallBtn" href="/go/okx-next/" target="_blank">Open</a>
-      </div>
-
-      <div class="row">
-        <div>4. Bitget</div>
-        <a class="smallBtn" href="/go/bitget-next/" target="_blank">Open</a>
-      </div>
-
-      <div class="row">
-        <div>5. BingX</div>
-        <a class="smallBtn" href="/go/bingx-next/" target="_blank">Open</a>
+      <div class="callout" style="margin-top:14px;">
+        <strong>Note:</strong> This page is for convenience. Always verify fees, promotions, and availability on each exchange’s official website.
+        Links may be sponsored/affiliate links. This is not financial advice.
       </div>
     </section>
 
+    <!-- QUICK COMPARE (below the Bybit CTA) -->
+    <section id="quick-compare" class="section">
+      <div class="sectionTitle">
+        <h2>Quick Compare (Top Exchanges)</h2>
+        <p class="hint">CTA stays “Bybit-first”, then alternatives.</p>
+      </div>
 
-    <aside class="card">
-      <h2>Fee Snapshot (Example)</h2>
+      <div class="grid2">
+        <!-- Ranking list -->
+        <div class="card">
+          <p class="muted" style="margin-bottom:10px;">
+            Choose the exchange that fits your trading style. If your intent is <strong>Bybit sign up</strong>, use the top Bybit button.
+          </p>
 
-      <table>
-        <tr>
-          <th>Type</th>
-          <th>Bybit</th>
-          <th>Binance</th>
-        </tr>
-        <tr>
-          <td>Spot Maker</td>
-          <td>0.10%</td>
-          <td>0.08%*</td>
-        </tr>
-        <tr>
-          <td>Spot Taker</td>
-          <td>0.10%</td>
-          <td>0.08%*</td>
-        </tr>
-        <tr>
-          <td>Futures Maker</td>
-          <td>0.02%</td>
-          <td>0.016%*</td>
-        </tr>
-        <tr>
-          <td>Futures Taker</td>
-          <td>0.055%</td>
-          <td>0.04%*</td>
-        </tr>
-      </table>
+          <div class="rank">
 
-      <p style="margin-top:10px;font-size:12px;color:#a7b0be;">
-        * Example values only. Verify on official websites.
-      </p>
-    </aside>
+            <!-- 1) Bybit -->
+            <div class="row">
+              <div class="left">
+                <div class="badge">1</div>
+                <div class="logo">BY</div>
+                <div class="meta">
+                  <div class="nameLine">
+                    <p class="name">Bybit</p>
+                    <span class="chip">Top Pick</span>
+                    <span class="chip">Futures</span>
+                  </div>
+                  <p class="subline">Futures-focused • strong liquidity • fast UI</p>
+                  <div class="chips">
+                    <span class="chip">Advanced derivatives</span>
+                    <span class="chip">Deep liquidity</span>
+                    <span class="chip">24/7 global</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="right">
+                <div class="ratingBox" aria-label="rating">
+                  <div>
+                    <div class="ratingNum">4.9</div>
+                    <div class="stars">★★★★★</div>
+                    <div class="grade">Outstanding</div>
+                  </div>
+                </div>
+                <a class="smallBtn primary"
+                   href="/go/bybit-next/"
+                   target="_blank" rel="noopener nofollow sponsored"
+                   data-cta="bybit-row">
+                  Open
+                </a>
+              </div>
+            </div>
+
+            <!-- 2) Binance -->
+            <div class="row">
+              <div class="left">
+                <div class="badge">2</div>
+                <div class="logo">BN</div>
+                <div class="meta">
+                  <div class="nameLine">
+                    <p class="name">Binance</p>
+                    <span class="chip">Low fees</span>
+                    <span class="chip">Ecosystem</span>
+                  </div>
+                  <p class="subline">Broad markets • large ecosystem • many pairs</p>
+                  <div class="chips">
+                    <span class="chip">Spot + Futures</span>
+                    <span class="chip">Staking / Earn</span>
+                    <span class="chip">High liquidity</span>
+                  </div>
+                </div>
+              </div>
+              <div class="right">
+                <div class="ratingBox">
+                  <div>
+                    <div class="ratingNum">4.8</div>
+                    <div class="stars">★★★★★</div>
+                    <div class="grade">Excellent</div>
+                  </div>
+                </div>
+                <a class="smallBtn"
+                   href="/go/binance-next/"
+                   target="_blank" rel="noopener nofollow sponsored"
+                   data-cta="binance-row">
+                  Open
+                </a>
+              </div>
+            </div>
+
+            <!-- 3) OKX -->
+            <div class="row">
+              <div class="left">
+                <div class="badge">3</div>
+                <div class="logo">OX</div>
+                <div class="meta">
+                  <div class="nameLine">
+                    <p class="name">OKX</p>
+                    <span class="chip">Derivatives</span>
+                    <span class="chip">Web3</span>
+                  </div>
+                  <p class="subline">Tools + derivatives • multi-chain support</p>
+                  <div class="chips">
+                    <span class="chip">Web3 wallet</span>
+                    <span class="chip">Advanced trading</span>
+                    <span class="chip">Global users</span>
+                  </div>
+                </div>
+              </div>
+              <div class="right">
+                <div class="ratingBox">
+                  <div>
+                    <div class="ratingNum">4.7</div>
+                    <div class="stars">★★★★★</div>
+                    <div class="grade">Excellent</div>
+                  </div>
+                </div>
+                <a class="smallBtn"
+                   href="/go/okx-next/"
+                   target="_blank" rel="noopener nofollow sponsored"
+                   data-cta="okx-row">
+                  Open
+                </a>
+              </div>
+            </div>
+
+            <!-- 4) Bitget -->
+            <div class="row">
+              <div class="left">
+                <div class="badge">4</div>
+                <div class="logo">BG</div>
+                <div class="meta">
+                  <div class="nameLine">
+                    <p class="name">Bitget</p>
+                    <span class="chip">Copy trading</span>
+                    <span class="chip">Futures</span>
+                  </div>
+                  <p class="subline">Copy trading + derivatives • beginner friendly</p>
+                  <div class="chips">
+                    <span class="chip">Copy trading</span>
+                    <span class="chip">Mobile-friendly</span>
+                    <span class="chip">Popular tools</span>
+                  </div>
+                </div>
+              </div>
+              <div class="right">
+                <div class="ratingBox">
+                  <div>
+                    <div class="ratingNum">4.6</div>
+                    <div class="stars">★★★★☆</div>
+                    <div class="grade">Very Good</div>
+                  </div>
+                </div>
+                <a class="smallBtn"
+                   href="/go/bitget-next/"
+                   target="_blank" rel="noopener nofollow sponsored"
+                   data-cta="bitget-row">
+                  Open
+                </a>
+              </div>
+            </div>
+
+            <!-- 5) BingX -->
+            <div class="row">
+              <div class="left">
+                <div class="badge">5</div>
+                <div class="logo">BX</div>
+                <div class="meta">
+                  <div class="nameLine">
+                    <p class="name">BingX</p>
+                    <span class="chip">Copy trading</span>
+                    <span class="chip">Simple UI</span>
+                  </div>
+                  <p class="subline">Simple onboarding • mobile friendly • social trading</p>
+                  <div class="chips">
+                    <span class="chip">Copy trading</span>
+                    <span class="chip">Easy start</span>
+                    <span class="chip">Mobile UI</span>
+                  </div>
+                </div>
+              </div>
+              <div class="right">
+                <a class="smallBtn"
+                   href="/go/bingx-next/"
+                   target="_blank" rel="noopener nofollow sponsored"
+                   data-cta="bingx-row">
+                  Open
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="callout">
+            <strong>Tip:</strong> If you’re here for <strong>Bybit</strong>, use the top button.
+            If you want alternatives, use the “Open” buttons above.
+          </div>
+        </div>
+
+        <!-- Fee snapshot -->
+        <aside class="card">
+          <div class="sectionTitle" style="margin-bottom:6px;">
+            <h2 style="font-size:16px;">Fee Snapshot (Example)</h2>
+            <p class="hint">Verify on official sites.</p>
+          </div>
+
+          <p class="muted">Example values only. Fees/promotions can change at any time.</p>
+
+          <table aria-label="fee compare table">
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Bybit</th>
+                <th>Binance</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Spot Maker</td>
+                <td>0.10%</td>
+                <td>0.08%*</td>
+              </tr>
+              <tr>
+                <td>Spot Taker</td>
+                <td>0.10%</td>
+                <td>0.08%*</td>
+              </tr>
+              <tr>
+                <td>Futures Maker</td>
+                <td>0.02%</td>
+                <td>0.016%*</td>
+              </tr>
+              <tr>
+                <td>Futures Taker</td>
+                <td>0.055%</td>
+                <td>0.04%*</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p class="note">
+            * Example values only. Always verify on each exchange’s official website.
+          </p>
+
+          <div class="callout">
+            <strong>Disclosure:</strong> Links may be sponsored/affiliate links.
+            This page is for information only and not financial advice.
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- FULL COMPARISON -->
+    <section id="full-compare" class="section">
+      <div class="sectionTitle">
+        <h2>Full Exchange Comparison</h2>
+        <p class="hint">More detail, same “Bybit-first” intent.</p>
+      </div>
+
+      <div class="compareGrid">
+
+        <!-- 1 Bybit -->
+        <div class="bigCard">
+          <div class="bigLeft">
+            <div class="bigNum">1</div>
+            <div class="bigLogo">BY</div>
+            <div class="bigMeta">
+              <p class="bigTitle">Bybit <span class="chip" style="margin-left:8px;">Top Pick</span></p>
+              <p class="bigDesc">Best for futures & active traders (speed, liquidity, derivatives).</p>
+              <ul class="bigList">
+                <li>Futures-focused experience with fast execution</li>
+                <li>Deep liquidity (major pairs) and active markets</li>
+                <li>Advanced derivatives & perpetual contracts</li>
+              </ul>
+              <div class="chips">
+                <span class="chip">Futures</span>
+                <span class="chip">Liquidity</span>
+                <span class="chip">Advanced tools</span>
+              </div>
+            </div>
+          </div>
+          <div class="bigRight">
+            <div class="bigRating">
+              <div class="num">4.9</div>
+              <div class="stars">★★★★★</div>
+              <div class="label">Outstanding</div>
+            </div>
+            <a class="visitBtn"
+               href="/go/bybit-next/"
+               target="_blank" rel="noopener nofollow sponsored"
+               data-cta="bybit-full">
+              Visit Bybit ↗
+            </a>
+          </div>
+        </div>
+
+        <!-- 2 Binance -->
+        <div class="bigCard">
+          <div class="bigLeft">
+            <div class="bigNum">2</div>
+            <div class="bigLogo">BN</div>
+            <div class="bigMeta">
+              <p class="bigTitle">Binance</p>
+              <p class="bigDesc">Global leader with broad markets and a large ecosystem.</p>
+              <ul class="bigList">
+                <li>Very wide selection of markets and pairs</li>
+                <li>Large ecosystem (earn/staking features vary)</li>
+                <li>Strong liquidity on major pairs</li>
+              </ul>
+              <div class="chips">
+                <span class="chip">Spot + Futures</span>
+                <span class="chip">Ecosystem</span>
+                <span class="chip">High volume</span>
+              </div>
+            </div>
+          </div>
+          <div class="bigRight">
+            <div class="bigRating">
+              <div class="num">4.8</div>
+              <div class="stars">★★★★★</div>
+              <div class="label">Excellent</div>
+            </div>
+            <a class="visitBtn"
+               href="/go/binance-next/"
+               target="_blank" rel="noopener nofollow sponsored"
+               data-cta="binance-full">
+              Visit Binance ↗
+            </a>
+          </div>
+        </div>
+
+        <!-- 3 OKX -->
+        <div class="bigCard">
+          <div class="bigLeft">
+            <div class="bigNum">3</div>
+            <div class="bigLogo">OX</div>
+            <div class="bigMeta">
+              <p class="bigTitle">OKX</p>
+              <p class="bigDesc">Advanced tools + Web3 wallet integration (varies by region).</p>
+              <ul class="bigList">
+                <li>Derivatives + pro trading features</li>
+                <li>Multi-chain Web3 wallet tools</li>
+                <li>Useful for traders who want tools depth</li>
+              </ul>
+              <div class="chips">
+                <span class="chip">Derivatives</span>
+                <span class="chip">Web3</span>
+                <span class="chip">Tools</span>
+              </div>
+            </div>
+          </div>
+          <div class="bigRight">
+            <div class="bigRating">
+              <div class="num">4.7</div>
+              <div class="stars">★★★★★</div>
+              <div class="label">Excellent</div>
+            </div>
+            <a class="visitBtn"
+               href="/go/okx-next/"
+               target="_blank" rel="noopener nofollow sponsored"
+               data-cta="okx-full">
+              Visit OKX ↗
+            </a>
+          </div>
+        </div>
+
+        <!-- 4 Bitget -->
+        <div class="bigCard">
+          <div class="bigLeft">
+            <div class="bigNum">4</div>
+            <div class="bigLogo">BG</div>
+            <div class="bigMeta">
+              <p class="bigTitle">Bitget</p>
+              <p class="bigDesc">Specialized copy trading platform and futures tools.</p>
+              <ul class="bigList">
+                <li>Copy trading features (choose carefully)</li>
+                <li>Futures + derivatives available (vary by region)</li>
+                <li>Beginner-friendly UI for quick start</li>
+              </ul>
+              <div class="chips">
+                <span class="chip">Copy trading</span>
+                <span class="chip">Futures</span>
+                <span class="chip">Beginner</span>
+              </div>
+            </div>
+          </div>
+          <div class="bigRight">
+            <div class="bigRating">
+              <div class="num">4.6</div>
+              <div class="stars">★★★★☆</div>
+              <div class="label">Very Good</div>
+            </div>
+            <a class="visitBtn"
+               href="/go/bitget-next/"
+               target="_blank" rel="noopener nofollow sponsored"
+               data-cta="bitget-full">
+              Visit Bitget ↗
+            </a>
+          </div>
+        </div>
+
+        <!-- 5 BingX -->
+        <div class="bigCard">
+          <div class="bigLeft">
+            <div class="bigNum">5</div>
+            <div class="bigLogo">BX</div>
+            <div class="bigMeta">
+              <p class="bigTitle">BingX</p>
+              <p class="bigDesc">Simple onboarding and mobile-friendly social/copy trading.</p>
+              <ul class="bigList">
+                <li>Simple UI (mobile-first feel)</li>
+                <li>Copy trading / social features (use caution)</li>
+                <li>Good for quick comparisons and onboarding</li>
+              </ul>
+              <div class="chips">
+                <span class="chip">Simple UI</span>
+                <span class="chip">Mobile</span>
+                <span class="chip">Copy trading</span>
+              </div>
+            </div>
+          </div>
+          <div class="bigRight">
+            <div class="bigRating">
+              <div class="num">4.5</div>
+              <div class="stars">★★★★☆</div>
+              <div class="label">Very Good</div>
+            </div>
+            <a class="visitBtn"
+               href="/go/bingx-next/"
+               target="_blank" rel="noopener nofollow sponsored"
+               data-cta="bingx-full">
+              Visit BingX ↗
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="callout">
+        <strong>Reminder:</strong> Fees, promotions, and supported services may vary by region and can change.
+        Always confirm on official websites.
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section">
+      <div class="sectionTitle">
+        <h2>FAQ</h2>
+        <p class="hint">Common questions from “Bybit site / Bybit address” searches.</p>
+      </div>
+
+      <div class="faq">
+
+        <details>
+          <summary>
+            Why is the Bybit button placed at the top?
+            <span class="kbd">+</span>
+          </summary>
+          <div class="faqBody">
+            Your search intent is likely “Bybit access / sign up”. The top CTA is designed to reduce friction.
+            If you want alternatives, scroll down for quick and full comparisons.
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            Are these fees always accurate?
+            <span class="kbd">+</span>
+          </summary>
+          <div class="faqBody">
+            No. Fee tiers and promotions can change. The fee table on this page is an <strong>example snapshot</strong>.
+            Always verify the current fee schedule directly on each exchange’s official website.
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            Why do you show multiple exchanges?
+            <span class="kbd">+</span>
+          </summary>
+          <div class="faqBody">
+            Some users prefer different features (ecosystem, derivatives tools, UI, onboarding).
+            This page keeps a Bybit-first flow while providing a structured comparison.
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            Do these links include affiliate tracking?
+            <span class="kbd">+</span>
+          </summary>
+          <div class="faqBody">
+            Some links may be sponsored/affiliate links. This helps support the site.
+            The content is provided for informational purposes only and is not financial advice.
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            What should I do before signing up?
+            <span class="kbd">+</span>
+          </summary>
+          <div class="faqBody">
+            Basic checklist:
+            <ul style="margin:8px 0 0; padding-left:18px; color: var(--muted); line-height:1.7;">
+              <li>Verify the official domain and security settings (2FA).</li>
+              <li>Confirm current fees and eligibility for your region.</li>
+              <li>Understand risks (leverage/futures can amplify losses).</li>
+            </ul>
+          </div>
+        </details>
+
+      </div>
+
+      <div class="callout">
+        <strong>Not financial advice:</strong> Always research independently and use proper risk management.
+      </div>
+    </section>
 
   </div>
 
-</div>
+  <footer>
+    <a href="https://block-w-news.site" target="_blank" rel="noopener">Blockchain Newsroom</a>
+    • Information only • Not financial advice<br />
+    © {{ now.Format "2006" }} • fwowi@naver.com
+  </footer>
 
-<footer>
-  Blockchain Newsroom • Information only • Not financial advice<br>
-  © {{ now.Format "2006" }} • fwowi@naver.com
-</footer>
-
+  <script>
+    document.addEventListener("click", function(e){
+      const a = e.target.closest("a[data-cta]");
+      if(!a) return;
+      // For debugging only:
+      // console.log("[CTA]", a.getAttribute("data-cta"), a.href);
+    });
+  </script>
 </body>
 </html>
