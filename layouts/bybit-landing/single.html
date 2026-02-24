@@ -39,6 +39,7 @@
 
     a{ color:inherit; }
     .wrap{ max-width:var(--max); margin:0 auto; padding:26px 16px 64px; }
+
     .hero{
       border:1px solid var(--line2);
       background: linear-gradient(180deg, rgba(245,184,0,.14), rgba(16,20,26,.70));
@@ -72,7 +73,16 @@
 
     h1{ margin:12px 0 8px; font-size:28px; line-height:1.25; font-weight:950; }
     .sub{ margin:0; color:var(--muted); font-size:14px; line-height:1.65; max-width: 78ch; }
-    .ctaRow{ display:flex; gap:10px; flex-wrap:wrap; margin-top:16px; }
+
+    /* ✅ HERO buttons: centered + stacked */
+    .ctaRow{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:10px;
+      margin-top:16px;
+    }
+    .ctaRow .btn{ width:min(420px, 100%); }
 
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
@@ -105,10 +115,8 @@
     .sectionTitle h2{ margin:0; font-size:18px; font-weight:950; }
     .sectionTitle .hint{ margin:0; color:var(--muted); font-size:12px; line-height:1.45; }
 
+    /* ✅ Quick Compare now full-width (Fee Snapshot removed) */
     .grid2{ display:grid; grid-template-columns:1fr; gap:14px; }
-    @media (min-width: 980px){
-      .grid2{ grid-template-columns: 1.15fr .85fr; }
-    }
 
     .card{
       border:1px solid var(--line2);
@@ -139,25 +147,26 @@
       flex:0 0 auto;
     }
 
-    /* ✅ logos (Quick Compare + Full Compare) */
+    /* ✅ Bigger logos in compare rows */
     .logo{
-      min-width:52px;
-      height:40px;
-      border-radius:12px;
+      min-width:64px;
+      height:48px;
+      border-radius:14px;
       display:flex;
       align-items:center;
       justify-content:center;
       border:1px solid var(--line2);
       background: rgba(255,255,255,.04);
-      padding:6px 10px;
+      padding:8px 12px;
       flex:0 0 auto;
       overflow:hidden;
     }
     .logo img{
-      max-height:24px;
+      max-height:32px;
       width:auto;
       object-fit:contain;
       display:block;
+      filter: drop-shadow(0 6px 14px rgba(0,0,0,.25));
     }
 
     .meta{ min-width:0; }
@@ -206,32 +215,6 @@
     }
     .smallBtn:hover{ filter:brightness(1.03); transform:translateY(-1px); }
 
-    /* Fee table */
-    table{
-      width:100%;
-      border-collapse:separate;
-      border-spacing:0;
-      overflow:hidden;
-      border-radius:14px;
-      border:1px solid var(--line2);
-      margin-top:10px;
-      background: rgba(0,0,0,.14);
-    }
-    th, td{
-      padding:12px 10px;
-      font-size:13px;
-      border-bottom:1px solid var(--line2);
-      text-align:left;
-      vertical-align: middle;
-    }
-    th{
-      background:rgba(255,255,255,.05);
-      font-weight:950;
-    }
-    tr:last-child td{ border-bottom:none; }
-
-    .note{ margin-top:10px; font-size:12px; color:var(--muted); line-height:1.55; }
-
     .callout{
       margin-top:14px;
       padding:14px 14px;
@@ -275,9 +258,10 @@
       flex:0 0 auto;
     }
 
+    /* ✅ Bigger logos in full cards */
     .bigLogo{
-      min-width:120px;
-      height:56px;
+      min-width:150px;
+      height:64px;
       border-radius:18px;
       border:1px solid var(--line2);
       background: rgba(255,255,255,.04);
@@ -289,10 +273,11 @@
       flex:0 0 auto;
     }
     .bigLogo img{
-      max-height:30px;
+      max-height:38px;
       width:auto;
       object-fit:contain;
       display:block;
+      filter: drop-shadow(0 8px 16px rgba(0,0,0,.25));
     }
 
     .bigMeta{ min-width:0; }
@@ -442,7 +427,7 @@
 <body>
   <div class="wrap">
 
-    <!-- HERO: Bybit top intent -->
+    <!-- HERO -->
     <section class="hero">
       <div class="toprow">
         <div class="heroBrand">
@@ -469,6 +454,7 @@
         Use the top button to proceed to <strong>Bybit</strong>. Compare alternatives below if you want different features or fee structures.
       </p>
 
+      <!-- ✅ centered stacked buttons -->
       <div class="ctaRow">
         <a class="btn btnPrimary"
            href="/go/bybit-next/"
@@ -488,7 +474,7 @@
       </div>
     </section>
 
-    <!-- QUICK COMPARE -->
+    <!-- QUICK COMPARE (full width) -->
     <section id="quick-compare" class="section">
       <div class="sectionTitle">
         <h2>Quick Compare (Top Exchanges)</h2>
@@ -496,7 +482,6 @@
       </div>
 
       <div class="grid2">
-        <!-- Ranking list -->
         <div class="card">
           <p class="muted" style="margin-bottom:10px;">
             Choose the exchange that fits your trading style. If your intent is <strong>Bybit sign up</strong>, use the top Bybit button.
@@ -695,57 +680,6 @@
             If you want alternatives, use the “Open” buttons above.
           </div>
         </div>
-
-        <!-- Fee snapshot -->
-        <aside class="card">
-          <div class="sectionTitle" style="margin-bottom:6px;">
-            <h2 style="font-size:16px;">Fee Snapshot (Example)</h2>
-            <p class="hint">Verify on official sites.</p>
-          </div>
-
-          <p class="muted">Example values only. Fees/promotions can change at any time.</p>
-
-          <table aria-label="fee compare table">
-            <thead>
-              <tr>
-                <th>Type</th>
-                <th>Bybit</th>
-                <th>Binance</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Spot Maker</td>
-                <td>0.10%</td>
-                <td>0.08%*</td>
-              </tr>
-              <tr>
-                <td>Spot Taker</td>
-                <td>0.10%</td>
-                <td>0.08%*</td>
-              </tr>
-              <tr>
-                <td>Futures Maker</td>
-                <td>0.02%</td>
-                <td>0.016%*</td>
-              </tr>
-              <tr>
-                <td>Futures Taker</td>
-                <td>0.055%</td>
-                <td>0.04%*</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <p class="note">
-            * Example values only. Always verify on each exchange’s official website.
-          </p>
-
-          <div class="callout">
-            <strong>Disclosure:</strong> Links may be sponsored/affiliate links.
-            This page is for information only and not financial advice.
-          </div>
-        </aside>
       </div>
     </section>
 
@@ -959,7 +893,6 @@
       </div>
 
       <div class="faq">
-
         <details>
           <summary>
             Why is the Bybit button placed at the top?
@@ -977,8 +910,7 @@
             <span class="kbd">+</span>
           </summary>
           <div class="faqBody">
-            No. Fee tiers and promotions can change. The fee table on this page is an <strong>example snapshot</strong>.
-            Always verify the current fee schedule directly on each exchange’s official website.
+            Fee tiers and promotions can change. Always verify the current fee schedule directly on each exchange’s official website.
           </div>
         </details>
 
@@ -988,8 +920,7 @@
             <span class="kbd">+</span>
           </summary>
           <div class="faqBody">
-            Some users prefer different features (ecosystem, derivatives tools, UI, onboarding).
-            This page keeps a Bybit-first flow while providing a structured comparison.
+            Some users prefer different features (ecosystem, derivatives tools, UI, onboarding). This page keeps a Bybit-first flow while providing a structured comparison.
           </div>
         </details>
 
@@ -999,8 +930,7 @@
             <span class="kbd">+</span>
           </summary>
           <div class="faqBody">
-            Some links may be sponsored/affiliate links. This helps support the site.
-            The content is provided for informational purposes only and is not financial advice.
+            Some links may be sponsored/affiliate links. This helps support the site. The content is for informational purposes only and is not financial advice.
           </div>
         </details>
 
@@ -1012,13 +942,12 @@
           <div class="faqBody">
             Basic checklist:
             <ul style="margin:8px 0 0; padding-left:18px; color: var(--muted); line-height:1.7;">
-              <li>Verify the official domain and security settings (2FA).</li>
+              <li>Verify the official domain and enable 2FA.</li>
               <li>Confirm current fees and eligibility for your region.</li>
               <li>Understand risks (leverage/futures can amplify losses).</li>
             </ul>
           </div>
         </details>
-
       </div>
 
       <div class="callout">
