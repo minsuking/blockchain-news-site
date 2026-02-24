@@ -58,7 +58,6 @@
     }
 
     .toprow{ display:flex; justify-content:space-between; align-items:flex-start; gap:12px; flex-wrap:wrap; }
-    .brand{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
     .pill{
       display:inline-flex; align-items:center; gap:8px;
       padding:8px 12px; border-radius:999px;
@@ -119,7 +118,7 @@
     }
     .muted{ color:var(--muted); font-size:13px; line-height:1.65; margin:0; }
 
-    /* Exchange ranking list (screenshot-like) */
+    /* Exchange ranking list */
     .rank{ display:flex; flex-direction:column; gap:10px; margin-top:10px; }
     .row{
       display:flex; gap:10px; align-items:center; justify-content:space-between;
@@ -139,15 +138,28 @@
       color:var(--accent2);
       flex:0 0 auto;
     }
+
+    /* ✅ logos (Quick Compare + Full Compare) */
     .logo{
-      width:40px; height:40px; border-radius:16px;
-      display:flex; align-items:center; justify-content:center;
+      min-width:52px;
+      height:40px;
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
       border:1px solid var(--line2);
-      background: rgba(255,255,255,.03);
+      background: rgba(255,255,255,.04);
+      padding:6px 10px;
       flex:0 0 auto;
-      font-weight:950;
-      color:#fff;
+      overflow:hidden;
     }
+    .logo img{
+      max-height:24px;
+      width:auto;
+      object-fit:contain;
+      display:block;
+    }
+
     .meta{ min-width:0; }
     .nameLine{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
     .name{ margin:0; font-weight:950; font-size:15px; }
@@ -262,14 +274,27 @@
       color:var(--accent2);
       flex:0 0 auto;
     }
+
     .bigLogo{
-      width:46px; height:46px; border-radius:18px;
+      min-width:120px;
+      height:56px;
+      border-radius:18px;
       border:1px solid var(--line2);
-      background: rgba(255,255,255,.03);
-      display:flex; align-items:center; justify-content:center;
-      font-weight:950;
+      background: rgba(255,255,255,.04);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 16px;
+      overflow:hidden;
       flex:0 0 auto;
     }
+    .bigLogo img{
+      max-height:30px;
+      width:auto;
+      object-fit:contain;
+      display:block;
+    }
+
     .bigMeta{ min-width:0; }
     .bigTitle{ margin:0; font-weight:950; font-size:16px; }
     .bigDesc{ margin:3px 0 0; color:var(--muted); font-size:12px; line-height:1.55; }
@@ -370,6 +395,47 @@
       border-bottom:1px solid rgba(255,255,255,.18);
     }
     footer a:hover{ border-bottom-color: rgba(245,184,0,.70); }
+
+    /* Hero brand (Bybit wordmark) */
+    .heroBrand{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      width:100%;
+    }
+    .bybitWordmark{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+    }
+    .bybitWordmark .logoWrap{
+      display:flex;
+      align-items:center;
+      padding:10px 14px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.20);
+      box-shadow: 0 14px 34px rgba(0,0,0,.30);
+      overflow:hidden;
+    }
+    .bybitWordmark img{
+      height:34px;
+      width:auto;
+      display:block;
+      object-fit:contain;
+    }
+    @media (max-width:520px){
+      .bybitWordmark img{ height:28px; }
+    }
+    .brandPills{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      flex-wrap:wrap;
+    }
   </style>
 </head>
 
@@ -379,10 +445,21 @@
     <!-- HERO: Bybit top intent -->
     <section class="hero">
       <div class="toprow">
-        <div class="brand">
-          <span class="pill">⭐ TOP PICK</span>
-          <span class="pill">Bybit Theme</span>
-          <span class="pill">Updated: 2026</span>
+        <div class="heroBrand">
+
+          <!-- Left: Bybit wordmark -->
+          <div class="bybitWordmark">
+            <div class="logoWrap">
+              <img src="/images/brands/bybit-wordmark.png" alt="Bybit" />
+            </div>
+          </div>
+
+          <!-- Right: pills -->
+          <div class="brandPills">
+            <span class="pill">⭐ TOP PICK</span>
+            <span class="pill">Updated: 2026</span>
+          </div>
+
         </div>
       </div>
 
@@ -411,7 +488,7 @@
       </div>
     </section>
 
-    <!-- QUICK COMPARE (below the Bybit CTA) -->
+    <!-- QUICK COMPARE -->
     <section id="quick-compare" class="section">
       <div class="sectionTitle">
         <h2>Quick Compare (Top Exchanges)</h2>
@@ -431,7 +508,9 @@
             <div class="row">
               <div class="left">
                 <div class="badge">1</div>
-                <div class="logo">BY</div>
+                <div class="logo">
+                  <img src="/images/brands/bybit-logo.png" alt="Bybit">
+                </div>
                 <div class="meta">
                   <div class="nameLine">
                     <p class="name">Bybit</p>
@@ -468,7 +547,9 @@
             <div class="row">
               <div class="left">
                 <div class="badge">2</div>
-                <div class="logo">BN</div>
+                <div class="logo">
+                  <img src="/images/brands/binance-logo.png" alt="Binance">
+                </div>
                 <div class="meta">
                   <div class="nameLine">
                     <p class="name">Binance</p>
@@ -504,7 +585,9 @@
             <div class="row">
               <div class="left">
                 <div class="badge">3</div>
-                <div class="logo">OX</div>
+                <div class="logo">
+                  <img src="/images/brands/okx-logo.png" alt="OKX">
+                </div>
                 <div class="meta">
                   <div class="nameLine">
                     <p class="name">OKX</p>
@@ -540,7 +623,9 @@
             <div class="row">
               <div class="left">
                 <div class="badge">4</div>
-                <div class="logo">BG</div>
+                <div class="logo">
+                  <img src="/images/brands/bitget-logo.png" alt="Bitget">
+                </div>
                 <div class="meta">
                   <div class="nameLine">
                     <p class="name">Bitget</p>
@@ -576,7 +661,9 @@
             <div class="row">
               <div class="left">
                 <div class="badge">5</div>
-                <div class="logo">BX</div>
+                <div class="logo">
+                  <img src="/images/brands/bingx-logo.png" alt="BingX">
+                </div>
                 <div class="meta">
                   <div class="nameLine">
                     <p class="name">BingX</p>
@@ -675,7 +762,9 @@
         <div class="bigCard">
           <div class="bigLeft">
             <div class="bigNum">1</div>
-            <div class="bigLogo">BY</div>
+            <div class="bigLogo">
+              <img src="/images/brands/bybit-logo.png" alt="Bybit">
+            </div>
             <div class="bigMeta">
               <p class="bigTitle">Bybit <span class="chip" style="margin-left:8px;">Top Pick</span></p>
               <p class="bigDesc">Best for futures & active traders (speed, liquidity, derivatives).</p>
@@ -710,7 +799,9 @@
         <div class="bigCard">
           <div class="bigLeft">
             <div class="bigNum">2</div>
-            <div class="bigLogo">BN</div>
+            <div class="bigLogo">
+              <img src="/images/brands/binance-logo.png" alt="Binance">
+            </div>
             <div class="bigMeta">
               <p class="bigTitle">Binance</p>
               <p class="bigDesc">Global leader with broad markets and a large ecosystem.</p>
@@ -745,7 +836,9 @@
         <div class="bigCard">
           <div class="bigLeft">
             <div class="bigNum">3</div>
-            <div class="bigLogo">OX</div>
+            <div class="bigLogo">
+              <img src="/images/brands/okx-logo.png" alt="OKX">
+            </div>
             <div class="bigMeta">
               <p class="bigTitle">OKX</p>
               <p class="bigDesc">Advanced tools + Web3 wallet integration (varies by region).</p>
@@ -780,7 +873,9 @@
         <div class="bigCard">
           <div class="bigLeft">
             <div class="bigNum">4</div>
-            <div class="bigLogo">BG</div>
+            <div class="bigLogo">
+              <img src="/images/brands/bitget-logo.png" alt="Bitget">
+            </div>
             <div class="bigMeta">
               <p class="bigTitle">Bitget</p>
               <p class="bigDesc">Specialized copy trading platform and futures tools.</p>
@@ -815,7 +910,9 @@
         <div class="bigCard">
           <div class="bigLeft">
             <div class="bigNum">5</div>
-            <div class="bigLogo">BX</div>
+            <div class="bigLogo">
+              <img src="/images/brands/bingx-logo.png" alt="BingX">
+            </div>
             <div class="bigMeta">
               <p class="bigTitle">BingX</p>
               <p class="bigDesc">Simple onboarding and mobile-friendly social/copy trading.</p>
@@ -941,7 +1038,6 @@
     document.addEventListener("click", function(e){
       const a = e.target.closest("a[data-cta]");
       if(!a) return;
-      // For debugging only:
       // console.log("[CTA]", a.getAttribute("data-cta"), a.href);
     });
   </script>
