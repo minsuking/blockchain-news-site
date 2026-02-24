@@ -1,0 +1,365 @@
+{{ define "main" }}
+<style>
+  :root{
+    --bg:#0b0d10;
+    --panel:#10141a;
+    --panel2:#0f1318;
+    --text:#e8edf3;
+    --muted:#a7b0be;
+    --line:rgba(255,255,255,.08);
+    --accent:#f5b800; /* Bybit-ish yellow */
+    --accent2:#ffcc33;
+    --shadow:0 18px 60px rgba(0,0,0,.45);
+    --r16:16px;
+    --r22:22px;
+    --max:1080px;
+    --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  }
+  body{ background:var(--bg); color:var(--text); }
+  .wrap{ max-width:var(--max); margin:0 auto; padding:28px 16px 64px; font-family:var(--font); }
+  .hero{
+    border:1px solid var(--line);
+    background:linear-gradient(180deg, rgba(245,184,0,.12), rgba(16,20,26,.65));
+    border-radius:var(--r22);
+    padding:22px 18px;
+    box-shadow:var(--shadow);
+  }
+  .toprow{ display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+  .brand{ display:flex; align-items:center; gap:10px; }
+  .pill{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:8px 12px; border-radius:999px;
+    background:rgba(245,184,0,.16);
+    border:1px solid rgba(245,184,0,.35);
+    color:var(--accent2); font-weight:800; letter-spacing:.2px;
+    font-size:12px;
+  }
+  .title{ margin:12px 0 6px; font-size:26px; line-height:1.25; font-weight:900; }
+  .sub{ margin:0 0 14px; color:var(--muted); font-size:14px; line-height:1.6; }
+  .ctaRow{ display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:10px;
+    padding:13px 14px; border-radius:14px;
+    border:1px solid var(--line); text-decoration:none;
+    font-weight:900; letter-spacing:.2px;
+    min-width:min(520px,100%);
+  }
+  .btnPrimary{
+    background:var(--accent);
+    color:#111 !important;
+    border-color:rgba(245,184,0,.65);
+    box-shadow:0 14px 30px rgba(245,184,0,.18);
+  }
+  .btnPrimary:hover{ filter:brightness(1.03); transform:translateY(-1px); }
+  .btnGhost{
+    background:rgba(255,255,255,.04);
+    color:var(--text) !important;
+  }
+  .btnGhost:hover{ background:rgba(255,255,255,.06); }
+  .grid{ display:grid; grid-template-columns:1fr; gap:14px; margin-top:18px; }
+  .card{
+    border:1px solid var(--line);
+    background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));
+    border-radius:var(--r16);
+    padding:16px 14px;
+  }
+  .card h2{ margin:0 0 8px; font-size:16px; font-weight:900; }
+  .muted{ color:var(--muted); font-size:13px; line-height:1.6; margin:0; }
+  .rank{
+    display:flex; flex-direction:column; gap:10px; margin-top:10px;
+  }
+  .row{
+    display:flex; gap:10px; align-items:center; justify-content:space-between;
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:12px 12px;
+    background:rgba(0,0,0,.12);
+  }
+  .left{ display:flex; align-items:center; gap:12px; min-width:0; }
+  .badge{
+    width:34px; height:34px; border-radius:12px;
+    display:flex; align-items:center; justify-content:center;
+    font-weight:900;
+    background:rgba(245,184,0,.16);
+    border:1px solid rgba(245,184,0,.35);
+    color:var(--accent2);
+    flex:0 0 auto;
+  }
+  .meta{ min-width:0; }
+  .name{ font-weight:900; margin:0; }
+  .desc{ margin:2px 0 0; color:var(--muted); font-size:12px; line-height:1.45; }
+  .tags{ display:flex; gap:6px; flex-wrap:wrap; margin-top:6px; }
+  .tag{
+    font-size:11px; font-weight:800;
+    padding:4px 8px; border-radius:999px;
+    border:1px solid var(--line);
+    background:rgba(255,255,255,.03);
+    color:var(--muted);
+  }
+  .right{ display:flex; align-items:center; gap:10px; flex:0 0 auto; }
+  .smallBtn{
+    display:inline-flex; align-items:center; justify-content:center;
+    padding:10px 12px; border-radius:12px;
+    text-decoration:none; font-weight:900;
+    border:1px solid var(--line);
+    background:rgba(255,255,255,.04);
+    color:var(--text) !important;
+    white-space:nowrap;
+  }
+  .smallBtn.primary{
+    background:var(--accent);
+    color:#111 !important;
+    border-color:rgba(245,184,0,.65);
+  }
+  .smallBtn:hover{ filter:brightness(1.03); transform:translateY(-1px); }
+  table{ width:100%; border-collapse:separate; border-spacing:0; overflow:hidden; border-radius:14px; border:1px solid var(--line); margin-top:10px; }
+  th,td{ padding:12px 10px; font-size:13px; border-bottom:1px solid var(--line); text-align:left; }
+  th{ background:rgba(255,255,255,.04); font-weight:900; }
+  tr:last-child td{ border-bottom:none; }
+  .note{
+    margin-top:10px; font-size:12px; color:var(--muted); line-height:1.55;
+  }
+  .footerNote{
+    margin-top:18px; padding:14px 14px;
+    border:1px solid var(--line);
+    border-radius:14px;
+    background:rgba(255,255,255,.03);
+    color:var(--muted); font-size:12px; line-height:1.6;
+  }
+  @media (min-width: 960px){
+    .grid{ grid-template-columns: 1.2fr .8fr; }
+    .btn{ min-width:unset; }
+  }
+</style>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="toprow">
+      <div class="brand">
+        <span class="pill">⭐ TOP PICK</span>
+        <span class="pill">Bybit Theme</span>
+        <span class="pill">Updated: 2026</span>
+      </div>
+    </div>
+
+    <h1 class="title">Official Bybit Access + Exchange Ranking</h1>
+    <p class="sub">
+      If you searched “Bybit site / Bybit address”, you’re in the right place.<br>
+      Use the top button to proceed to Bybit. Compare alternatives below if you want lower fees or different features.
+    </p>
+
+    <!-- TOP CTA (Bybit first) -->
+    <div class="ctaRow">
+      <a class="btn btnPrimary"
+         href="/go/bybit-next/"
+         target="_blank" rel="noopener nofollow sponsored"
+         data-cta="bybit-top">
+        🔥 Go to Bybit (Top Access)
+      </a>
+
+      <a class="btn btnGhost"
+         href="#ranking"
+         data-cta="scroll-ranking">
+        Compare Top Exchanges ↓
+      </a>
+    </div>
+  </section>
+
+  <div class="grid">
+    <!-- LEFT: Ranking -->
+    <section id="ranking" class="card">
+      <h2>Top Exchange Ranking (Quick Compare)</h2>
+      <p class="muted">This is a simple comparison page for convenience. Always verify details on official websites.</p>
+
+      <div class="rank">
+
+        <!-- #1 Bybit -->
+        <div class="row">
+          <div class="left">
+            <div class="badge">1</div>
+            <div class="meta">
+              <p class="name">Bybit</p>
+              <p class="desc">Futures-focused, strong liquidity, fast UI</p>
+              <div class="tags">
+                <span class="tag">Futures</span>
+                <span class="tag">Liquidity</span>
+                <span class="tag">Advanced tools</span>
+              </div>
+            </div>
+          </div>
+          <div class="right">
+            <a class="smallBtn primary"
+               href="/go/bybit-next/"
+               target="_blank" rel="noopener nofollow sponsored"
+               data-cta="bybit-row">
+              Open Bybit
+            </a>
+          </div>
+        </div>
+
+        <!-- #2 Binance -->
+        <div class="row">
+          <div class="left">
+            <div class="badge">2</div>
+            <div class="meta">
+              <p class="name">Binance</p>
+              <p class="desc">Very large ecosystem, broad markets</p>
+              <div class="tags">
+                <span class="tag">Ecosystem</span>
+                <span class="tag">Spot+Futures</span>
+                <span class="tag">Lowest-fee options</span>
+              </div>
+            </div>
+          </div>
+          <div class="right">
+            <a class="smallBtn"
+               href="/go/binance-next/"
+               target="_blank" rel="noopener nofollow sponsored"
+               data-cta="binance-row">
+              Open Binance
+            </a>
+          </div>
+        </div>
+
+        <!-- #3 OKX -->
+        <div class="row">
+          <div class="left">
+            <div class="badge">3</div>
+            <div class="meta">
+              <p class="name">OKX</p>
+              <p class="desc">Derivatives + tools, global user base</p>
+              <div class="tags">
+                <span class="tag">Derivatives</span>
+                <span class="tag">Tools</span>
+                <span class="tag">Global</span>
+              </div>
+            </div>
+          </div>
+          <div class="right">
+            <a class="smallBtn"
+               href="/go/okx-next/"
+               target="_blank" rel="noopener nofollow sponsored"
+               data-cta="okx-row">
+              Open OKX
+            </a>
+          </div>
+        </div>
+
+        <!-- #4 Bitget -->
+        <div class="row">
+          <div class="left">
+            <div class="badge">4</div>
+            <div class="meta">
+              <p class="name">Bitget</p>
+              <p class="desc">Futures + copy trading focus</p>
+              <div class="tags">
+                <span class="tag">Copy trading</span>
+                <span class="tag">Futures</span>
+                <span class="tag">Beginner friendly</span>
+              </div>
+            </div>
+          </div>
+          <div class="right">
+            <a class="smallBtn"
+               href="/go/bitget-next/"
+               target="_blank" rel="noopener nofollow sponsored"
+               data-cta="bitget-row">
+              Open Bitget
+            </a>
+          </div>
+        </div>
+
+        <!-- #5 BingX -->
+        <div class="row">
+          <div class="left">
+            <div class="badge">5</div>
+            <div class="meta">
+              <p class="name">BingX</p>
+              <p class="desc">Copy trading + simple onboarding</p>
+              <div class="tags">
+                <span class="tag">Copy trading</span>
+                <span class="tag">Simple UI</span>
+                <span class="tag">Mobile friendly</span>
+              </div>
+            </div>
+          </div>
+          <div class="right">
+            <a class="smallBtn"
+               href="/go/bingx-next/"
+               target="_blank" rel="noopener nofollow sponsored"
+               data-cta="bingx-row">
+              Open BingX
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footerNote">
+        <strong style="color:#fff;">Tip:</strong> If your intent is “Bybit sign up”, use the top Bybit button.
+        If you want alternatives, pick from the ranking list.
+      </div>
+    </section>
+
+    <!-- RIGHT: Table / Notes -->
+    <aside class="card">
+      <h2>Fee Snapshot (Example)</h2>
+      <p class="muted">Fill these with your latest numbers. Keep wording as “example / may change”.</p>
+
+      <table aria-label="fee compare table">
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Bybit</th>
+            <th>Binance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Spot Maker</td>
+            <td>0.10%</td>
+            <td>0.08%*</td>
+          </tr>
+          <tr>
+            <td>Spot Taker</td>
+            <td>0.10%</td>
+            <td>0.08%*</td>
+          </tr>
+          <tr>
+            <td>Futures Maker</td>
+            <td>0.02%</td>
+            <td>0.016%*</td>
+          </tr>
+          <tr>
+            <td>Futures Taker</td>
+            <td>0.055%</td>
+            <td>0.04%*</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="note">
+        * Example values only. Fees and promotions can change at any time. Please verify on each exchange’s official website.
+      </p>
+
+      <div class="footerNote">
+        <strong style="color:#fff;">Disclosure:</strong> Links may be sponsored/affiliate links. This page is for information only and not financial advice.
+      </div>
+    </aside>
+  </div>
+
+</div>
+
+<script>
+  // Optional: lightweight click logging (no external dependency)
+  // If you already have GA/GTM, replace this with your tracking.
+  document.addEventListener("click", function(e){
+    const a = e.target.closest("a[data-cta]");
+    if(!a) return;
+    const cta = a.getAttribute("data-cta");
+    // console.log("[CTA]", cta, a.href);
+  });
+</script>
+{{ end }}
