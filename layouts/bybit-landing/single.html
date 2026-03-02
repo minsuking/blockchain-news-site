@@ -421,6 +421,27 @@
       gap:8px;
       flex-wrap:wrap;
     }
+    /* Hero discount line */
+.heroDeal{
+  margin-top:10px;
+  display:flex;
+  justify-content:center;
+}
+.dealPill{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 14px;
+  border-radius:999px;
+  border:1px solid rgba(245,184,0,.40);
+  background: rgba(245,184,0,.10);
+  color: var(--accent2);
+  font-weight:950;
+  letter-spacing:.2px;
+  font-size:13px;
+  box-shadow: 0 10px 22px rgba(245,184,0,.10);
+}
+.dealPill strong{ color:#fff; }
   </style>
 </head>
 
@@ -453,7 +474,9 @@
         If you searched “Bybit site / Bybit address”, you’re in the right place.<br>
         Use the top button to proceed to <strong>Bybit</strong>. Compare alternatives below if you want different features or fee structures.
       </p>
-
+      <div class="heroDeal">
+        <span class="dealPill">⚡ Sign up via official link • <strong>Lifetime 20% Trading Fee Discount</strong></span>
+      </div>
       <!-- ✅ centered stacked buttons -->
       <div class="ctaRow">
         <a class="btn btnPrimary"
