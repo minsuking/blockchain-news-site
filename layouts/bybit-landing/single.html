@@ -84,22 +84,34 @@
     .ctaRow .btn{ width:min(420px, 100%); }
 
     .btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding:14px 16px; border-radius:14px;
-      border:1px solid var(--line2);
-      text-decoration:none;
-      font-weight:950;
-      letter-spacing:.2px;
-      transition: transform .08s ease, filter .2s ease, background .2s ease;
-      white-space:nowrap;
-    }
-    .btn img{
-      height:20px;
-      width:auto;
-      object-fit:contain;
-      display:block;
-      flex:0 0 auto;
-    }
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  padding:14px 16px;
+  border-radius:14px;
+  border:1px solid var(--line2);
+  text-decoration:none;
+  font-weight:950;
+  letter-spacing:.2px;
+  transition: transform .08s ease, filter .2s ease, background .2s ease;
+  white-space:nowrap;
+}
+
+.btnLogo{
+  height:28px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  flex:0 0 auto;
+}
+
+.btnLogo img{
+  height:100%;
+  width:auto;
+  object-fit:contain;
+  display:block;
+}
     .btnPrimary{
       background:var(--accent);
       color:#111 !important;
@@ -467,18 +479,12 @@
           Compare Exchanges ↓
         </a>
       </div>
-
-      <div class="callout" style="margin-top:14px;">
-        <strong>Note:</strong> This page is for convenience. Always verify fees, promotions, and availability on each exchange’s official website.
-        Links may be sponsored/affiliate links. This is not financial advice.
-      </div>
     </section>
 
     <!-- QUICK COMPARE (full width) -->
     <section id="quick-compare" class="section">
       <div class="sectionTitle">
         <h2>Quick Compare (Top Exchanges)</h2>
-        <p class="hint">CTA stays “Bybit-first”, then alternatives.</p>
       </div>
 
       <div class="grid2">
