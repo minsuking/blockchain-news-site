@@ -74,7 +74,6 @@
     h1{ margin:12px 0 8px; font-size:28px; line-height:1.25; font-weight:950; }
     .sub{ margin:0; color:var(--muted); font-size:14px; line-height:1.65; max-width: 78ch; }
 
-    /* ✅ HERO buttons: centered + stacked */
     .ctaRow{
       display:flex;
       flex-direction:column;
@@ -93,6 +92,13 @@
       letter-spacing:.2px;
       transition: transform .08s ease, filter .2s ease, background .2s ease;
       white-space:nowrap;
+    }
+    .btn img{
+      height:20px;
+      width:auto;
+      object-fit:contain;
+      display:block;
+      flex:0 0 auto;
     }
     .btnPrimary{
       background:var(--accent);
@@ -115,7 +121,6 @@
     .sectionTitle h2{ margin:0; font-size:18px; font-weight:950; }
     .sectionTitle .hint{ margin:0; color:var(--muted); font-size:12px; line-height:1.45; }
 
-    /* ✅ Quick Compare now full-width (Fee Snapshot removed) */
     .grid2{ display:grid; grid-template-columns:1fr; gap:14px; }
 
     .card{
@@ -126,7 +131,6 @@
     }
     .muted{ color:var(--muted); font-size:13px; line-height:1.65; margin:0; }
 
-    /* Exchange ranking list */
     .rank{ display:flex; flex-direction:column; gap:10px; margin-top:10px; }
     .row{
       display:flex; gap:10px; align-items:center; justify-content:space-between;
@@ -147,7 +151,6 @@
       flex:0 0 auto;
     }
 
-    /* ✅ Bigger logos in compare rows */
     .logo{
       min-width:64px;
       height:48px;
@@ -227,7 +230,6 @@
     }
     .callout strong{ color:#fff; }
 
-    /* Full comparison cards */
     .compareGrid{
       display:grid;
       grid-template-columns:1fr;
@@ -258,7 +260,6 @@
       flex:0 0 auto;
     }
 
-    /* ✅ Bigger logos in full cards */
     .bigLogo{
       min-width:150px;
       height:64px;
@@ -329,7 +330,6 @@
     }
     .visitBtn:hover{ filter:brightness(1.03); transform:translateY(-1px); }
 
-    /* FAQ */
     .faq{ display:flex; flex-direction:column; gap:10px; }
     details{
       border:1px solid var(--line2);
@@ -363,7 +363,6 @@
       vertical-align:middle;
     }
 
-    /* Footer */
     footer{
       margin-top:44px;
       border-top:1px solid var(--line2);
@@ -381,7 +380,6 @@
     }
     footer a:hover{ border-bottom-color: rgba(245,184,0,.70); }
 
-    /* Hero brand (Bybit wordmark) */
     .heroBrand{
       display:flex;
       align-items:center;
@@ -421,27 +419,6 @@
       gap:8px;
       flex-wrap:wrap;
     }
-    /* Hero discount line */
-.heroDeal{
-  margin-top:10px;
-  display:flex;
-  justify-content:center;
-}
-.dealPill{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:10px 14px;
-  border-radius:999px;
-  border:1px solid rgba(245,184,0,.40);
-  background: rgba(245,184,0,.10);
-  color: var(--accent2);
-  font-weight:950;
-  letter-spacing:.2px;
-  font-size:13px;
-  box-shadow: 0 10px 22px rgba(245,184,0,.10);
-}
-.dealPill strong{ color:#fff; }
   </style>
 </head>
 
@@ -474,20 +451,18 @@
         If you searched “Bybit site / Bybit address”, you’re in the right place.<br>
         Use the top button to proceed to <strong>Bybit</strong>. Compare alternatives below if you want different features or fee structures.
       </p>
-      <div class="heroDeal">
-        <span class="dealPill">⚡ Sign up via official link • <strong>Lifetime 20% Trading Fee Discount</strong></span>
-      </div>
-      <!-- ✅ centered stacked buttons -->
+
       <div class="ctaRow">
         <a class="btn btnPrimary"
            href="https://partner.bybit.com/b/BLOCKWNEWS"
            target="_blank" rel="noopener nofollow sponsored"
            data-cta="bybit-top">
-          🔥 Go to Bybit (Top Access)
+          <img src="/images/brands/bybit-logo.png" alt="Bybit">
+          Open Bybit ↗
         </a>
 
         <a class="btn btnGhost" href="#quick-compare" data-cta="scroll-quick">
-          Compare Top Exchanges ↓
+          Compare Exchanges ↓
         </a>
       </div>
 
@@ -581,7 +556,7 @@
                   </div>
                 </div>
                 <a class="smallBtn"
-                   href="https://accounts.binance.com/register?ref=119113960"
+                   href="/go/binance-next/"
                    target="_blank" rel="noopener nofollow sponsored"
                    data-cta="binance-row">
                   Open
@@ -619,7 +594,7 @@
                   </div>
                 </div>
                 <a class="smallBtn"
-                   href="https://www.okx.com/join/BLOCKWNEWS"
+                   href="https://www.okx.com/join/94891319"
                    target="_blank" rel="noopener nofollow sponsored"
                    data-cta="okx-row">
                   Open
@@ -657,7 +632,7 @@
                   </div>
                 </div>
                 <a class="smallBtn"
-                   href="https://partner.bitget.com/bg/8hj4aw22"
+                   href="https://partner.bitget.com/bg/UD0PT2"
                    target="_blank" rel="noopener nofollow sponsored"
                    data-cta="bitget-row">
                   Open
@@ -781,7 +756,7 @@
               <div class="label">Excellent</div>
             </div>
             <a class="visitBtn"
-               href="https://accounts.binance.com/register?ref=119113960"
+               href="/go/binance-next/"
                target="_blank" rel="noopener nofollow sponsored"
                data-cta="binance-full">
               Visit Binance ↗
@@ -818,7 +793,7 @@
               <div class="label">Excellent</div>
             </div>
             <a class="visitBtn"
-               href="https://www.okx.com/join/BLOCKWNEWS"
+               href="https://www.okx.com/join/94891319"
                target="_blank" rel="noopener nofollow sponsored"
                data-cta="okx-full">
               Visit OKX ↗
@@ -855,7 +830,7 @@
               <div class="label">Very Good</div>
             </div>
             <a class="visitBtn"
-               href="https://partner.bitget.com/bg/8hj4aw22"
+               href="https://partner.bitget.com/bg/UD0PT2"
                target="_blank" rel="noopener nofollow sponsored"
                data-cta="bitget-full">
               Visit Bitget ↗
